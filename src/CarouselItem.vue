@@ -1,26 +1,26 @@
 <template>
-  <div class="carousel__item">
-    <div class="carousel__item__image">
+  <div class="h-carousel__item">
+    <div class="h-carousel__item__image">
       <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//94/MTA-2629219/nike_nike-men-air-presto-mid-acronym-sepatu-sneakers-pria--ah7832-_full12.jpg?output-format=webp">
     </div>
-    <div class="carousel__item__name">
+    <div class="h-carousel__item__name">
       NIKE Men Air Presto Mid Acronym Sepatu Sneakers Pria</div>
-    <div class="carousel__item__price">
-      <div class="carousel__item__price--strikethrough">Rp6.000.000</div>
-      <div class="carousel__item__price__display">Rp5.400.000
-        <span class="carousel__item__price--discount">(-10%)</span>
+    <div class="h-carousel__item__price">
+      <div class="h-carousel__item__price--strikethrough">Rp6.000.000</div>
+      <div class="h-carousel__item__price__display">Rp5.400.000
+        <span class="h-carousel__item__price--discount">(-10%)</span>
       </div>
     </div>
-    <div class="carousel__item__info">
-      <div class="carousel__item__info__installment">Cicilan 0%</div>
+    <div class="h-carousel__item__info">
+      <div class="h-carousel__item__info__installment">Cicilan 0%</div>
     </div>
-    <div class="carousel__item__rating">
-      <span class="carousel__item__rating__star"><img src="https://i.imgur.com/GutCBw7.png"></span>
-      <span class="carousel__item__rating__star"><img src="https://i.imgur.com/GutCBw7.png"></span>
-      <span class="carousel__item__rating__star"><img src="https://i.imgur.com/GutCBw7.png"></span>
-      <span class="carousel__item__rating__star"><img src="https://i.imgur.com/qqJxaGC.png"></span>
-      <span class="carousel__item__rating__star"><img src="https://i.imgur.com/qqJxaGC.png"></span>
-      <span class="carousel__item__rating__info"> 9 Ulasan</span>
+    <div class="h-carousel__item__rating">
+      <span class="h-carousel__item__rating__star"><img src="https://i.imgur.com/GutCBw7.png"></span>
+      <span class="h-carousel__item__rating__star"><img src="https://i.imgur.com/GutCBw7.png"></span>
+      <span class="h-carousel__item__rating__star"><img src="https://i.imgur.com/GutCBw7.png"></span>
+      <span class="h-carousel__item__rating__star"><img src="https://i.imgur.com/qqJxaGC.png"></span>
+      <span class="h-carousel__item__rating__star"><img src="https://i.imgur.com/qqJxaGC.png"></span>
+      <span class="h-carousel__item__rating__info"> 9 Ulasan</span>
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .carousel {
+  .h-carousel {
     &__item {
       display: inline-block;
       width: 18%;

@@ -1,9 +1,9 @@
 <template>
-    <div class="carousel-container">
-      <div class="carousel__left-arrow" @click="prev">
+    <div class="h-carousel-container">
+      <div class="h-carousel__left-arrow" @click="prev">
         <img src="https://i.imgur.com/JkraWHJ.png">
       </div>
-      <div class="carousel__content">
+      <div class="h-carousel__content">
         <CarouselItem />
         <CarouselItem />
         <CarouselItem />
@@ -13,7 +13,7 @@
         <CarouselItem />
         <CarouselItem />
       </div>
-      <div class="carousel__right-arrow" @click="next">
+      <div class="h-carousel__right-arrow" @click="next">
         <img src="https://i.imgur.com/JkraWHJ.png">
       </div>
     </div>
@@ -22,13 +22,13 @@
 <script src="./bli-carousel.js"></script>
 
 <style lang="scss" scoped>
-  .carousel-container {
+  .h-carousel-container {
     position: relative;
     width: 100%;
     height: 100%;
     margin: 0 auto;
   }
-  .carousel {
+  .h-carousel {
     &__content {
       width: 100%;
       overflow: hidden;
