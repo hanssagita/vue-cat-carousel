@@ -1,4 +1,4 @@
-# h-carousel
+# vue-h-carousel
 
 ## Project setup
 ```
