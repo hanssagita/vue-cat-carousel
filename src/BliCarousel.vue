@@ -4,14 +4,10 @@
         <img src="https://i.imgur.com/JkraWHJ.png">
       </div>
       <div class="h-carousel__content">
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
+        <CarouselItem
+          v-for="product in products"
+          :key="product" 
+          :product="product"/>
       </div>
       <div class="h-carousel__right-arrow" @click="next">
         <img src="https://i.imgur.com/JkraWHJ.png">

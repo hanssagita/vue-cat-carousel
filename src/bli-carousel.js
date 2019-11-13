@@ -1,6 +1,13 @@
 /* eslint-disable no-console */
+import routes from './routes'
+
 export default {
   name: 'bli-carousel',
+  data () {
+    return {
+      products: routes
+    }
+  },
   components: {
     CarouselItem: () => import('./CarouselItem')
   },
