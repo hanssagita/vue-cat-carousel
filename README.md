@@ -1,4 +1,4 @@
-# bli-carousel
+# h-carousel
 
 ## Project setup
 ```
