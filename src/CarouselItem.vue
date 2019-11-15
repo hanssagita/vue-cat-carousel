@@ -17,14 +17,14 @@
     <div class="h-carousel__item__rating">
       <span
         class="h-carousel__item__rating__star"
-        v-for="n in review.rating"
-        :key="n">
+        v-for="(n, idx) in review.rating"
+        :key="idx">
         <img src="https://i.imgur.com/GutCBw7.png">
       </span>
       <span
         class="h-carousel__item__rating__star"
-        v-for="n in noRating"
-        :key="n">
+        v-for="(n, idx) in noRating"
+        :key="idx">
         <img src="https://i.imgur.com/qqJxaGC.png">
       </span>
       <span class="h-carousel__item__rating__info"> {{ review.count }} Ulasan</span>
@@ -37,12 +37,7 @@
 <style lang="scss" scoped>
   .h-carousel {
     &__item {
-      display: inline-block;
-      width: 18%;
-      padding: 0 1%;
-      @media only screen and (max-width: 768px) {
-        width: 50%;
-      }
+      width: 100%;
       &__image {
         img {
           width: 100%;

@@ -3,11 +3,22 @@
       <div class="h-carousel__left-arrow" @click="prev">
         <img src="https://i.imgur.com/JkraWHJ.png">
       </div>
-      <div class="h-carousel__content">
-        <CarouselItem
-          v-for="product in products"
-          :key="product" 
-          :product="product"/>
+      <div
+        ref="carouselContent"
+        class="h-carousel__content">
+        <div
+          ref="carouselWrapper"
+          :style="wrapperStyles"
+          class="h-carousel__content__wrapper">
+          <div
+              ref="carouselItem"
+              v-for="product in products"
+              class="h-carousel__content__wrapper__item"
+              :key="product.id">
+            <CarouselItem
+                    :product="product"/>
+          </div>
+        </div>
       </div>
       <div class="h-carousel__right-arrow" @click="next">
         <img src="https://i.imgur.com/JkraWHJ.png">
@@ -15,7 +26,7 @@
     </div>
 </template>
 
-<script src="./bli-carousel.js"></script>
+<script src="./h-carousel.js"></script>
 
 <style lang="scss" scoped>
   .h-carousel-container {
@@ -28,10 +39,23 @@
     &__content {
       width: 100%;
       overflow: hidden;
-      overflow-x: scroll;
       white-space : nowrap;
       display: inline-block;
       box-sizing: border-box;
+      &__wrapper {
+        transition: transform 0.5S ease;
+        @media only screen and (max-width: 768px) {
+          overflow-x: scroll;
+        }
+        &__item {
+          width: 18%;
+          padding: 0 1%;
+          @media only screen and (max-width: 768px) {
+            width: 50%;
+          }
+          display: inline-block;
+        }
+      }
     }
     &__left-arrow {
       width: 32px;
@@ -47,6 +71,10 @@
       border-right: 1px solid #eee;
       background-color: rgba(255, 255, 255, 0.2);
       cursor: pointer;
+      z-index: 2;
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
       img {
         width: 32px;
         height: 32px;
@@ -68,6 +96,10 @@
       border-right: 1px solid #eee;
       background-color: rgba(255, 255, 255, 0.2);
       cursor: pointer;
+      z-index: 2;
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
       img {
         width: 32px;
         height: 32px;
