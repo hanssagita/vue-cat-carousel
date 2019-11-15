@@ -4,6 +4,10 @@ export default {
     product: {
       type: Object,
       default: {}
+    },
+    index: {
+      type: Number,
+      default: 0
     }
   },
   computed: {

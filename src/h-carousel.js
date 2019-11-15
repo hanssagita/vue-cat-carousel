@@ -1,12 +1,16 @@
 /* eslint-disable no-console */
-import routes from './routes'
 const PERSLIDE = 5
 
 export default {
   name: 'h-carousel',
+  props: {
+    products: {
+      type: Array,
+      default: []
+    }
+  },
   data () {
     return {
-      products: routes,
       slideCount: 0,
       screenWidth: 0,
       itemWidth: 0,

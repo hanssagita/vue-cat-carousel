@@ -12,11 +12,16 @@
           class="h-carousel__content__wrapper">
           <div
               ref="carouselItem"
-              v-for="product in products"
+              v-for="(product, index) in products"
               class="h-carousel__content__wrapper__item"
-              :key="product.id">
-            <CarouselItem
-                    :product="product"/>
+              :key="index">
+            <template>
+              <slot
+                name="item"
+                :product="product"
+                :index="index"
+              />
+            </template>
           </div>
         </div>
       </div>

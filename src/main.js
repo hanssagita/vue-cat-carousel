@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import HCarousel from './HCarousel.vue'
+const Demo = () => import ('./Demo.vue')
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(HCarousel),
+  render: h => h(Demo),
 }).$mount('#app')
