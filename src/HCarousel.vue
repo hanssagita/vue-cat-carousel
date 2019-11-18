@@ -1,7 +1,13 @@
 <template>
     <div class="h-carousel-container">
-      <div class="h-carousel__left-arrow" @click="prev">
-        <img src="https://i.imgur.com/JkraWHJ.png">
+      <div class="h-carousel__prev-navigation" @click="prev">
+        <template>
+          <slot name="prev-navigation">
+            <div class="h-carousel__default-nav h-carousel__default-nav--left">
+              <img src="https://i.imgur.com/JkraWHJ.png">
+            </div>
+          </slot>
+        </template>
       </div>
       <div
         ref="carouselContent"
@@ -25,8 +31,14 @@
           </div>
         </div>
       </div>
-      <div class="h-carousel__right-arrow" @click="next">
-        <img src="https://i.imgur.com/JkraWHJ.png">
+      <div class="h-carousel__next-navigation" @click="next">
+        <template>
+          <slot name="next-navigation">
+            <div class="h-carousel__default-nav">
+              <img src="https://i.imgur.com/JkraWHJ.png">
+            </div>
+          </slot>
+        </template>
       </div>
     </div>
 </template>
@@ -35,6 +47,7 @@
 
 <style lang="scss" scoped>
   .h-carousel-container {
+    display: flex;
     position: relative;
     width: 100%;
     height: 100%;
@@ -62,40 +75,26 @@
         }
       }
     }
-    &__left-arrow {
-      width: 32px;
-      height: 72px;
-      position: absolute;
+    &__prev-navigation {
       display: flex;
-      justify-content: center;
-      align-content: center;
-      align-items: center;
-      top: calc(50% - 32px);
-      border-radius: 5px;
-      box-shadow: 1px 2px 5px -1px #b0b0b0;
-      border-right: 1px solid #eee;
-      background-color: rgba(255, 255, 255, 0.2);
-      cursor: pointer;
+      align-self: center;
+      position: absolute;
       z-index: 2;
-      @media only screen and (max-width: 768px) {
-        display: none;
-      }
-      img {
-        width: 32px;
-        height: 32px;
-        transform: rotate(180deg);
-      }
     }
-    &__right-arrow {
+    &__next-navigation {
+      display: flex;
+      align-self: center;
+      position: absolute;
+      right: 0;
+      z-index: 2;
+    }
+    &__default-nav {
       width: 32px;
       height: 72px;
-      position: absolute;
       display: flex;
       justify-content: center;
       align-content: center;
       align-items: center;
-      top: calc(50% - 32px);
-      right: 0;
       border-radius: 5px;
       box-shadow: 1px 2px 5px -1px #b0b0b0;
       border-right: 1px solid #eee;
@@ -108,10 +107,14 @@
       img {
         width: 32px;
         height: 32px;
+      }
+      &--left {
+        img {
+          transform: rotate(180deg);
+        }
       }
     }
   }
-
 </style>
 <style>
   * {
