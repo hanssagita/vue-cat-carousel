@@ -1,10 +1,10 @@
 <template>
   <div class="h-carousel__item">
     <div class="h-carousel__item__image">
-      <img :src="product.image">
+      <img :src="data.image">
     </div>
     <div class="h-carousel__item__name">
-      {{ product.name }}</div>
+      {{ data.name }}</div>
     <div class="h-carousel__item__price">
       <div class="h-carousel__item__price--strikethrough">{{ price.listed }}</div>
       <div class="h-carousel__item__price__display">{{ price.offered }}

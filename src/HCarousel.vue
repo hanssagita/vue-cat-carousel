@@ -18,13 +18,13 @@
           class="h-carousel__content__wrapper">
           <div
               ref="carouselItem"
-              v-for="(product, index) in products"
+              v-for="(item, index) in items"
               class="h-carousel__content__wrapper__item"
               :key="index">
             <template>
               <slot
                 name="item"
-                :product="product"
+                :data="item"
                 :index="index"
               />
             </template>

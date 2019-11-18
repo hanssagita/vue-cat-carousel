@@ -1,7 +1,7 @@
 export default {
   name: "CarouselItem",
   props: {
-    product: {
+    data: {
       type: Object,
       default: {}
     },
@@ -12,10 +12,10 @@ export default {
   },
   computed: {
     price () {
-      return this.product.price || {}
+      return this.data.price || {}
     },
     review () {
-      return this.product.review || {}
+      return this.data.review || {}
     },
     noRating () {
       return 5 - this.review.rating

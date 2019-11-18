@@ -4,7 +4,7 @@ const PERSLIDE = 5
 export default {
   name: 'h-carousel',
   props: {
-    products: {
+    items: {
       type: Array,
       default: []
     }
@@ -21,7 +21,7 @@ export default {
     }
   },
   mounted () {
-    this.slideCount = this.products.length
+    this.slideCount = this.items.length
     this.screenWidth = window.innerWidth
     this.itemWidth = this.carouselItem[0].clientWidth
   },

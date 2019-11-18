@@ -2,14 +2,14 @@
   <div>
     <div class="title">DEMO APP</div>
     <HCarousel
-      :products="products"
+      :items="products"
     >
       <template
         slot="item"
-        slot-scope="{product, index}"
+        slot-scope="{data, index}"
       >
        <CarouselItem
-        :product="product"
+        :data="data"
         :index="index"
        />
       </template>
