@@ -1,10 +1,20 @@
 {
   "name": "vue-h-carousel",
+  "author": "Hans < hans.sagita@gmail.com >",
+  "description": "vue-cat-carousel is a carousel component for Vue.js.",
+  "keywords": [
+    "carousel",
+    "vue-swipe",
+    "vue-component",
+    "vue",
+    "vue-js",
+    "blibli"
+  ],
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name vue-cat-carousel ./src/index.js",
     "lint": "vue-cli-service lint",
     "start": "npm run serve"
   },
@@ -45,5 +55,13 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
+  ],
+  "main": "./dist/vue-cat-carousel.common.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
   ]
 }
