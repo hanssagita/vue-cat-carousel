@@ -1,9 +1,9 @@
 <template>
-    <div class="h-carousel-container">
-      <div class="h-carousel__prev-navigation" @click="prev">
+    <div class="cat-carousel-container">
+      <div class="cat-carousel__prev-navigation" @click="prev">
         <template>
           <slot name="prev-navigation">
-            <div class="h-carousel__default-nav h-carousel__default-nav--left">
+            <div class="cat-carousel__default-nav cat-carousel__default-nav--left">
               <img src="https://i.imgur.com/JkraWHJ.png">
             </div>
           </slot>
@@ -11,15 +11,15 @@
       </div>
       <div
         ref="carouselContent"
-        class="h-carousel__content">
+        class="cat-carousel__content">
         <div
           ref="carouselWrapper"
           :style="wrapperStyles"
-          class="h-carousel__content__wrapper">
+          class="cat-carousel__content__wrapper">
           <div
               ref="carouselItem"
               v-for="(item, index) in items"
-              class="h-carousel__content__wrapper__item"
+              class="cat-carousel__content__wrapper__item"
               :key="index">
             <template>
               <slot
@@ -31,10 +31,10 @@
           </div>
         </div>
       </div>
-      <div class="h-carousel__next-navigation" @click="next">
+      <div class="cat-carousel__next-navigation" @click="next">
         <template>
           <slot name="next-navigation">
-            <div class="h-carousel__default-nav">
+            <div class="cat-carousel__default-nav">
               <img src="https://i.imgur.com/JkraWHJ.png">
             </div>
           </slot>
@@ -43,17 +43,17 @@
     </div>
 </template>
 
-<script src="./h-carousel.js"></script>
+<script src="./cat-carousel.js"></script>
 
 <style lang="scss" scoped>
-  .h-carousel-container {
+  .cat-carousel-container {
     display: flex;
     position: relative;
     width: 100%;
     height: 100%;
     margin: 0 auto;
   }
-  .h-carousel {
+  .cat-carousel {
     &__content {
       width: 100%;
       overflow: hidden;

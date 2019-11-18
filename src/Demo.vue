@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="title">DEMO APP</div>
-    <HCarousel
+    <CatCarousel
       :items="products"
     >
       <template
@@ -19,7 +19,7 @@
           <img src="https://i.imgur.com/JkraWHJ.png">
         </div>
       </template>
-    </HCarousel>
+    </CatCarousel>
   </div>
 </template>
 

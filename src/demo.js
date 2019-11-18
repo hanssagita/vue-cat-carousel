@@ -9,7 +9,7 @@ export default {
     }
   },
   components: {
-    HCarousel: () => import('./HCarousel'),
+    CatCarousel: () => import('./CatCarousel'),
     CarouselItem: () => import('./CarouselItem')
   }
 }
