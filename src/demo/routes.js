@@ -182,5 +182,74 @@ export default [
     "url": "https://www.blibli.com/p/miniso-official-grizzly-we-bears-bare-lying-plush-toy-boneka/ps--MII-60035-00037?ds=MII-60035-00037-00001",
     "productCode": "MTA-3988186",
     "productSku": "MII-60035-00037"
+  },
+  {
+    "id": "ps--MII-213213-00099",
+    "name": "Miniso Official Grizzly We Bears Bare Lying Plush Toy Boneka",
+    "image": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//106/MTA-3988186/miniso_miniso_official_boneka_panda_we_bears_bare_lying_plush_toy__full02.jpg",
+    "review": {
+      "rating": 4,
+      "count": 12
+    },
+    "otherOfferings": {
+      "count": 0,
+      "startPrice": "99900"
+    },
+    "zeroPercentInstallment": false,
+    "price": {
+      "listed": 185000,
+      "offered": 99900,
+      "discount": 46
+    },
+    "stock": true,
+    "url": "https://www.blibli.com/p/miniso-official-grizzly-we-bears-bare-lying-plush-toy-boneka/ps--MII-60035-00037?ds=MII-60035-00037-00001",
+    "productCode": "MTA-3988186",
+    "productSku": "MII-60035-00037"
+  },
+  {
+    "id": "ps--MII-213213-00099",
+    "name": "Miniso Official Grizzly We Bears Bare Lying Plush Toy Boneka",
+    "image": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//106/MTA-3988186/miniso_miniso_official_boneka_panda_we_bears_bare_lying_plush_toy__full02.jpg",
+    "review": {
+      "rating": 4,
+      "count": 12
+    },
+    "otherOfferings": {
+      "count": 0,
+      "startPrice": "99900"
+    },
+    "zeroPercentInstallment": false,
+    "price": {
+      "listed": 185000,
+      "offered": 99900,
+      "discount": 46
+    },
+    "stock": true,
+    "url": "https://www.blibli.com/p/miniso-official-grizzly-we-bears-bare-lying-plush-toy-boneka/ps--MII-60035-00037?ds=MII-60035-00037-00001",
+    "productCode": "MTA-3988186",
+    "productSku": "MII-60035-00037"
+  },
+  {
+    "id": "ps--MII-213213-00099",
+    "name": "Miniso Official Grizzly We Bears Bare Lying Plush Toy Boneka",
+    "image": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//106/MTA-3988186/miniso_miniso_official_boneka_panda_we_bears_bare_lying_plush_toy__full02.jpg",
+    "review": {
+      "rating": 4,
+      "count": 12
+    },
+    "otherOfferings": {
+      "count": 0,
+      "startPrice": "99900"
+    },
+    "zeroPercentInstallment": false,
+    "price": {
+      "listed": 185000,
+      "offered": 99900,
+      "discount": 46
+    },
+    "stock": true,
+    "url": "https://www.blibli.com/p/miniso-official-grizzly-we-bears-bare-lying-plush-toy-boneka/ps--MII-60035-00037?ds=MII-60035-00037-00001",
+    "productCode": "MTA-3988186",
+    "productSku": "MII-60035-00037"
   }
 ]
