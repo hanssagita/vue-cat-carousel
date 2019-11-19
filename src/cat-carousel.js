@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const PERSLIDE = 5
 
 export default {
@@ -9,12 +8,8 @@ export default {
       default: []
     }
   },
-  created () {
-    this.itemsOnRight = this.items.length - PERSLIDE
-  },
   data () {
     return {
-      screenWidth: 0,
       itemWidth: 0,
       wrapper: {
         translateX: 0
@@ -24,10 +19,8 @@ export default {
     }
   },
   mounted () {
+    this.itemsOnRight = this.items.length - PERSLIDE
     this.itemWidth = this.carouselItem[0].clientWidth
-  },
-  components: {
-    CarouselItem: () => import('./demo/CarouselItem')
   },
   computed: {
     carouselContent () {
