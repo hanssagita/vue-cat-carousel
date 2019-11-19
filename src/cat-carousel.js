@@ -65,7 +65,6 @@ export default {
       this.itemsOnRight -= slideCount
     },
     countSlide (remainingItems) {
-      console.log(remainingItems)
       return remainingItems < PERSLIDE ? remainingItems : PERSLIDE
     }
   }
