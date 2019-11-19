@@ -27,7 +27,7 @@ export default {
     this.itemWidth = this.carouselItem[0].clientWidth
   },
   components: {
-    CarouselItem: () => import('./CarouselItem')
+    CarouselItem: () => import('./demo/CarouselItem')
   },
   computed: {
     carouselContent () {

@@ -9,7 +9,7 @@ export default {
     }
   },
   components: {
-    CatCarousel: () => import('./CatCarousel'),
+    CatCarousel: () => import('../CatCarousel'),
     CarouselItem: () => import('./CarouselItem')
   }
 }
