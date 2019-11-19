@@ -13,9 +13,8 @@
   "version": "0.2.0",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --target lib --name vue-cat-carousel ./src/index.js",
-    "build-bundle-report": "vue-cli-service build --target lib --modern --name vue-cat-carousel --report-json ./src/index.js",
+    "build": "vue-cli-service build --target lib --name vue-cat-carousel ./src/index.js",
+    "build-report": "vue-cli-service build --target lib --modern --name vue-cat-carousel --report-json ./src/index.js",
     "lint": "vue-cli-service lint",
     "start": "npm run serve"
   },
