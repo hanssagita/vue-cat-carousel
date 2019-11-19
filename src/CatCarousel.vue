@@ -61,7 +61,7 @@
       display: inline-block;
       box-sizing: border-box;
       &__wrapper {
-        transition: transform 0.5S ease;
+        transition: transform 0.85s ease-out;
         @media only screen and (max-width: 768px) {
           overflow-x: scroll;
         }
