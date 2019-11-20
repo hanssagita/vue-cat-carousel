@@ -1,5 +1,5 @@
 <template>
-    <div class="cat-carousel-container">
+  <div class="cat-carousel-container">
       <div class="cat-carousel__prev-navigation" @click="prev">
         <template>
           <slot name="prev-navigation">

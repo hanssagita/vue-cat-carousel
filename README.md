@@ -1,24 +1,23 @@
-# vue-cat-carousel
+vue-cat-carousel
 
-## Project setup
-```
-npm install
-```
+npm run dev to start development mode
+go to demo folder and open index.html from your browser
+every changes automaticaly watched but you need to hard 
+refresh your browser
+use the latest template
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+To use it 
 
-### Compiles and minifies for production
 ```
-npm run build
+<CatCarousel
+    :items="${your list}">
+    template
+          slot="item"
+          slot-scope="{data, index}"
+        >
+          <div class="item">
+            Put your html code here 
+          </div>
+        </template>
+</CatCarousel>
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

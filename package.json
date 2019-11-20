@@ -1,63 +1,60 @@
 {
   "name": "vue-cat-carousel",
-  "author": "Hans < hans.sagita@gmail.com >",
-  "description": "vue-cat-carousel is a carousel component for Vue.js.",
+  "version": "0.3.0",
+  "description": "vue-cat-carousel is a slider component of Vue.js.",
   "keywords": [
+    "slide",
+    "swipe",
     "carousel",
-    "vue-swipe",
+    "vue-slider",
     "vue-component",
-    "vue",
-    "vue-js",
-    "blibli"
+    "blibli.com"
   ],
-  "version": "0.2.0",
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name vue-cat-carousel ./src/index.js",
-    "build-report": "vue-cli-service build --target lib --modern --name vue-cat-carousel --report-json ./src/index.js",
-    "lint": "vue-cli-service lint",
-    "start": "npm run serve"
+  "homepage": "",
+  "author": "Hans Sagita < hans.sagita@gmail.com >",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hanssagita/vue-cat-carousel"
   },
-  "dependencies": {
-    "core-js": "^3.3.2",
-    "vue": "^2.6.10"
+  "license": "MIT",
+  "main": "dist/vue-cat-carousel.umd.js",
+  "module": "dist/vue-cat-carousel.esm.js",
+  "unpkg": "dist/vue-cat-carousel.min.js",
+  "jsdelivr": "dist/vue-cat-carousel.min.js",
+  "typings": "types/index.d.ts",
+  "files": [
+    "src",
+    "dist/*.js",
+    "types/*.d.ts"
+  ],
+  "scripts": {
+    "build": "npm run build:browser && npm run build:es && npm run build:umd",
+    "build:browser": "cross-env NODE_ENV=production rollup --config build/rollup.config.browser.js",
+    "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.esm.js",
+    "build:umd": "cross-env NODE_ENV=production rollup --config build/rollup.config.umd.js",
+    "dev": "cross-env NODE_ENV=development rollup --config build/rollup.config.browser.js --watch",
+    "test": "jest"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.0.0",
-    "@vue/cli-plugin-eslint": "^4.0.0",
-    "@vue/cli-service": "^4.0.0",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^8.0.0",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-jest": "^24.8.0",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.2.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "flush-promises": "^1.0.2",
+    "jest": "^24.8.0",
+    "rollup": "^1.15.1",
+    "rollup-plugin-buble": "^0.19.6",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-eslint": "^6.0.0",
+    "rollup-plugin-node-resolve": "^5.0.1",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-uglify": "^6.0.2",
+    "rollup-plugin-vue": "^5.0.0",
+    "stylus": "^0.54.5",
+    "uglify-es": "^3.3.9",
+    "vue": "^2.6.10",
+    "vue-jest": "^3.0.4",
     "vue-template-compiler": "^2.6.10"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "main": "./dist/vue-cat-carousel.common.js",
-  "files": [
-    "dist/*",
-    "src/*",
-    "public/*",
-    "*.json",
-    "*.js"
-  ]
+  }
 }
