@@ -14,7 +14,7 @@
   "author": "Hans Sagita < hans.sagita@gmail.com >",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/hanssagita/vue-cat-carousel"
   },
   "license": "MIT",
   "main": "dist/vue-cat-carousel.umd.js",
@@ -56,6 +56,5 @@
     "vue": "^2.6.10",
     "vue-jest": "^3.0.4",
     "vue-template-compiler": "^2.6.10"
-  },
-  "dependencies": {}
+  }
 }
