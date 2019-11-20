@@ -1,7 +1,7 @@
 const PERSLIDE = 5
 
 export default {
-  name: 'cat-carousel',
+  name: 'CatCarousel',
   props: {
     items: {
       type: Array,
@@ -20,7 +20,7 @@ export default {
   },
   mounted () {
     this.itemsOnRight = this.items.length - PERSLIDE
-    this.itemWidth = this.carouselItem[0].clientWidth
+    this.itemWidth = this.carouselItem.length > 0 && this.carouselItem[0].clientWidth
   },
   computed: {
     carouselContent () {
@@ -40,20 +40,18 @@ export default {
     prev () {
       if (this.itemsOnLeft === 0) return
       const slideCount = this.countSlide(this.itemsOnLeft)
-      this.wrapper = {
-        ...this.wrapper,
+      this.wrapper = Object.assign({}, this.wrapper,{
         translateX: this.wrapper.translateX + slideCount * this.itemWidth
-      }
+      })
       this.itemsOnLeft -= slideCount
       this.itemsOnRight += slideCount
     },
     next () {
       if (this.itemsOnRight === this.items.length) return
       const slideCount = this.countSlide(this.itemsOnRight)
-      this.wrapper = {
-        ...this.wrapper,
+      this.wrapper = Object.assign({}, this.wrapper, {
         translateX: this.wrapper.translateX - slideCount * this.itemWidth
-      }
+      })
       this.itemsOnLeft += slideCount
       this.itemsOnRight -= slideCount
     },
