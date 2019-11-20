@@ -1,13 +1,22 @@
-import Vue from 'vue'
+import CatCarousel from './CatCarousel.vue'
 
-import CatCarousel from './CatCarousel'
-
-const Components = {
-  CatCarousel
+const plugin = {
+  // eslint-disable-next-line no-undef
+  version: VERSION,
+  install(Vue) {
+    Vue.component(CatCarousel.name, CatCarousel)
+  },
 }
 
-Object.keys(Components).forEach(name => {
-  Vue.component(name, Components[name])
-})
+export { CatCarousel }
+export default plugin
 
-export default Components
+let GlobalVue = null
+if (typeof window !== 'undefined') {
+  GlobalVue = window.Vue
+} else if (typeof global !== 'undefined') {
+  GlobalVue = global.Vue
+}
+if (GlobalVue) {
+  GlobalVue.use(plugin)
+}
