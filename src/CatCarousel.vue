@@ -1,46 +1,56 @@
 <template>
   <div class="cat-carousel-container">
-      <div class="cat-carousel__prev-navigation" @click="prev">
-        <template>
-          <slot name="prev-navigation">
-            <div class="cat-carousel__default-nav cat-carousel__default-nav--left">
-              <img src="https://i.imgur.com/JkraWHJ.png">
-            </div>
-          </slot>
-        </template>
-      </div>
-      <div
-        ref="carouselContent"
-        class="cat-carousel__content">
-        <div
-          ref="carouselWrapper"
-          :style="wrapperStyles"
-          class="cat-carousel__content__wrapper">
-          <div
-              ref="carouselItem"
-              v-for="(item, index) in items"
-              class="cat-carousel__content__wrapper__item"
-              :key="index">
-            <template>
-              <slot
-                name="item"
-                :data="item"
-                :index="index"
-              />
-            </template>
+    <div
+      :class="['cat-carousel__navigation', {'cat-carousel__navigation--end': onTheFarLeft}]"
+      @click="prev"
+    >
+      <template>
+        <slot name="prev-navigation">
+          <div class="cat-carousel__default-nav cat-carousel__default-nav--left">
+            <img src="https://i.imgur.com/JkraWHJ.png">
           </div>
+        </slot>
+      </template>
+    </div>
+    <div
+      ref="carouselContent"
+      class="cat-carousel__content"
+    >
+      <div
+        ref="carouselWrapper"
+        :style="wrapperStyles"
+        class="cat-carousel__content__wrapper"
+      >
+        <div
+          v-for="(item, index) in items"
+          ref="carouselItem"
+          :key="index"
+          class="cat-carousel__content__wrapper__item"
+        >
+          <template>
+            <slot
+              name="item"
+              :data="item"
+              :index="index"
+            />
+          </template>
         </div>
       </div>
-      <div class="cat-carousel__next-navigation" @click="next">
-        <template>
-          <slot name="next-navigation">
-            <div class="cat-carousel__default-nav">
-              <img src="https://i.imgur.com/JkraWHJ.png">
-            </div>
-          </slot>
-        </template>
-      </div>
     </div>
+    <div
+      :class="['cat-carousel__navigation cat-carousel__navigation__next',
+               {'cat-carousel__navigation--end': onTheFarRight}]"
+      @click="next"
+    >
+      <template>
+        <slot name="next-navigation">
+          <div class="cat-carousel__default-nav">
+            <img src="https://i.imgur.com/JkraWHJ.png">
+          </div>
+        </slot>
+      </template>
+    </div>
+  </div>
 </template>
 
 <script src="./cat-carousel.js"></script>
@@ -75,18 +85,17 @@
         }
       }
     }
-    &__prev-navigation {
+    &__navigation {
       display: flex;
       align-self: center;
       position: absolute;
       z-index: 2;
-    }
-    &__next-navigation {
-      display: flex;
-      align-self: center;
-      position: absolute;
-      right: 0;
-      z-index: 2;
+      &__next {
+        right: 0;
+      }
+      &--end {
+        opacity: 0.5;
+      }
     }
     &__default-nav {
       width: 32px;

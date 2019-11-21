@@ -1,23 +1,68 @@
-vue-cat-carousel
+# 🐱🐱🐱 Vue-Cat-Carousel 🐱🐱🐱
 
-npm run dev to start development mode
-go to demo folder and open index.html from your browser
-every changes automaticaly watched but you need to hard 
-refresh your browser
-use the latest template
 
-To use it 
+Simple and lightest Carousel 
 
+
+## Install
+
+```bash
+npm i -S vue-cat-carousel
+or
+npm install --save vue-cat-carousel
 ```
-<CatCarousel
-    :items="${your list}">
-    template
-          slot="item"
-          slot-scope="{data, index}"
-        >
-          <div class="item">
-            Put your html code here 
-          </div>
-        </template>
-</CatCarousel>
+
+## Usage
+
+Plugin install:
+
+```js
+import Vue from 'vue'
+import CatCarousel from 'vue-cat-carousel'
+
+Vue.use(CatCarousel)
 ```
+
+Or work on a Vue instance:
+
+```HTML
+<cat-carousel
+    :items="items"
+  >
+    <template
+      slot="item"
+      slot-scope="{data, index}"
+    >
+      <div class="item">{{index}} {{data.name}} </div>
+    </template>
+  </cat-carousel>
+```
+
+```JavaScript
+import { CatCarousel } from 'vue-cat-carousel'
+
+new Vue({
+  el: 'body',
+  components: {
+    CatCarousel
+  },
+  data() {
+    return {
+      items: [{name: 'hans'}, {name: 'sagita'}]
+    }
+  }
+})
+```
+
+## Props
+
+Slider：
+
+| name            | type                             | default    | description                                                            |
+| --------------- | -------------------------------- | ---------- | ---------------------------------------------------------------------- |
+| items           | list                           | []       | List of items in loop                                                        |
+
+
+# License
+
+MIT
