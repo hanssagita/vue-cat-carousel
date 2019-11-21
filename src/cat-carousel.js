@@ -34,11 +34,17 @@ export default {
     },
     wrapperStyles () {
       return {transform: `translateX(${this.wrapper.translateX}px)`}
+    },
+    onTheFarLeft () {
+      return this.itemsOnLeft === 0
+    },
+    onTheFarRight () {
+      return this.itemsOnRight === 0
     }
   },
   methods: {
     prev () {
-      if (this.itemsOnLeft === 0) return
+      if (this.onTheFarLeft) return
       const slideCount = this.countSlide(this.itemsOnLeft)
       this.wrapper = Object.assign({}, this.wrapper,{
         translateX: this.wrapper.translateX + slideCount * this.itemWidth
@@ -47,7 +53,7 @@ export default {
       this.itemsOnRight += slideCount
     },
     next () {
-      if (this.itemsOnRight === this.items.length) return
+      if (this.onTheFarRight) return
       const slideCount = this.countSlide(this.itemsOnRight)
       this.wrapper = Object.assign({}, this.wrapper, {
         translateX: this.wrapper.translateX - slideCount * this.itemWidth

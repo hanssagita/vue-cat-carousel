@@ -1,7 +1,7 @@
 <template>
   <div class="cat-carousel-container">
     <div
-      class="cat-carousel__prev-navigation"
+      :class="['cat-carousel__navigation', {'cat-carousel__navigation--end': onTheFarLeft}]"
       @click="prev"
     >
       <template>
@@ -38,7 +38,8 @@
       </div>
     </div>
     <div
-      class="cat-carousel__next-navigation"
+      :class="['cat-carousel__navigation cat-carousel__navigation__next',
+               {'cat-carousel__navigation--end': onTheFarRight}]"
       @click="next"
     >
       <template>
@@ -84,18 +85,17 @@
         }
       }
     }
-    &__prev-navigation {
+    &__navigation {
       display: flex;
       align-self: center;
       position: absolute;
       z-index: 2;
-    }
-    &__next-navigation {
-      display: flex;
-      align-self: center;
-      position: absolute;
-      right: 0;
-      z-index: 2;
+      &__next {
+        right: 0;
+      }
+      &--end {
+        opacity: 0.5;
+      }
     }
     &__default-nav {
       width: 32px;
