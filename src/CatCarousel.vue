@@ -61,12 +61,12 @@
       display: inline-block;
       box-sizing: border-box;
       &__wrapper {
-        transition: transform 0.85s ease-out;
+        transition: transform 0.5s ease-out;
         @media only screen and (max-width: 768px) {
           overflow-x: scroll;
         }
         &__item {
-          width: 18%;
+          width: 20%;
           padding: 0 1%;
           @media only screen and (max-width: 768px) {
             width: 50%;
@@ -114,11 +114,5 @@
         }
       }
     }
-  }
-</style>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
   }
 </style>
