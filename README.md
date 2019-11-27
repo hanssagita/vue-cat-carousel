@@ -36,6 +36,7 @@ How to use it in HTML
 ```HTML
 <cat-carousel
     :items="items"
+    :item-per-page="5"
   >
     <template
       slot="item"
