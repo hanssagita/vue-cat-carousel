@@ -16,18 +16,29 @@ npm install --save vue-cat-carousel
 
 Plugin install:
 
+Global install
 ```js
 import Vue from 'vue'
 import CatCarousel from 'vue-cat-carousel'
 
 Vue.use(CatCarousel)
+
 ```
 
-Or work on a Vue instance:
+Local install
+```js
+components: {
+  CatCarousel: () => import('vue-cat-carousel')
+}
+```
 
+How to use it in HTML
 ```HTML
 <cat-carousel
     :items="items"
+    :item-per-page="5"
+    :hide-indicators="false"
+    :indicators-item-size="10"
   >
     <template
       slot="item"
@@ -61,6 +72,9 @@ Slider：
 | name            | type                             | default    | description                                                            |
 | --------------- | -------------------------------- | ---------- | ---------------------------------------------------------------------- |
 | items           | list                           | []       | List of items in loop                                                        |
+| item-per-page           | number                           | 5    | List of items in one page                                                        |
+| hide-indicators           | boolean                           | false    | show and hide carousel indicators                                                        |
+| indicators-item-size          | Number                           | 16    | define carousel indicators item size                                                       |
 
 
 # License

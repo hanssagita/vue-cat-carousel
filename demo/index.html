@@ -20,7 +20,10 @@
 <div id="slider">
   demo
   <cat-carousel
-    :items="people"
+          :items="people"
+          :item-per-page="itemPerPage"
+          :hide-indicators="false"
+          :indicators-item-size="10"
   >
     <template
       slot="item"
@@ -31,15 +34,14 @@
   </cat-carousel>
 </div>
 
-<script src="https://unpkg.com/vue@2.5.17/dist/vue.min.js"></script>
+<script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
 <script src="../dist/vue-cat-carousel.min.js"></script>
 <script>
   new Vue({
     el: '#slider',
     data() {
       return {
-        list: [],
-        testv: 2,
+        itemPerPage: 5,
         people: [{
           name: 'hans',
           age: 23
