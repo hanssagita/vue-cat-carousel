@@ -21,12 +21,14 @@ export default {
         translateX: 0
       },
       itemsOnLeft: 0,
-      itemsOnRight: 0
+      itemsOnRight: 0,
+      maxSlide: 0,
+      track: 0
     }
   },
   mounted () {
-    console.log('kucing', this.itemPerPage)
     this.itemsOnRight = this.items.length - this.itemPerPage
+    this.maxSlide = Math.ceil(this.items.length / this.itemPerPage)
     this.itemWidth = this.carouselItem.length > 0 && this.carouselItem[0].clientWidth
   },
   computed: {
@@ -43,10 +45,10 @@ export default {
       return {transform: `translateX(${this.wrapper.translateX}px)`}
     },
     onFirstPage () {
-      return this.itemsOnLeft === 0
+      return this.track === 0
     },
     onLastPage () {
-      return this.itemsOnRight === 0
+      return this.track === this.maxSlide - 1
     },
     widthPerItem () {
       return `${(WIDTH_PAGE / this.itemPerPage) - SEPARATOR}%`
@@ -54,22 +56,24 @@ export default {
   },
   methods: {
     prev () {
-      if (this.onTheFarLeft) return
+      if (this.onFirstPage) return
       const slideCount = this.countSlide(this.itemsOnLeft)
       this.wrapper = Object.assign({}, this.wrapper,{
         translateX: this.wrapper.translateX + slideCount * this.itemWidth
       })
       this.itemsOnLeft -= slideCount
       this.itemsOnRight += slideCount
+      this.track--
     },
     next () {
-      if (this.onTheFarRight) return
+      if (this.onLastPage) return
       const slideCount = this.countSlide(this.itemsOnRight)
       this.wrapper = Object.assign({}, this.wrapper, {
         translateX: this.wrapper.translateX - slideCount * this.itemWidth
       })
       this.itemsOnLeft += slideCount
       this.itemsOnRight -= slideCount
+      this.track++
     },
     countSlide (remainingItems) {
       return remainingItems < this.itemPerPage ? remainingItems : this.itemPerPage

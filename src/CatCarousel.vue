@@ -51,10 +51,12 @@
       </div>
     </div>
     <div class="cat-carousel__controls">
+      {{onFirstPage}}
       <div class="cat-carousel__controls__item"></div>
       <div class="cat-carousel__controls__item cat-carousel__controls__item--selected"></div>
       <div class="cat-carousel__controls__item"></div>
       <div class="cat-carousel__controls__item"></div>
+      {{onLastPage}}
     </div>
   </div>
 </template>
