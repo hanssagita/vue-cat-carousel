@@ -1,4 +1,5 @@
-const PERSLIDE = 5
+const WIDTH_PAGE = 100
+const SEPARATOR = 2
 
 export default {
   name: 'CatCarousel',
@@ -6,6 +7,11 @@ export default {
     items: {
       type: Array,
       default: []
+    },
+    itemPerPage: {
+      type: Number,
+      default: 5,
+      required: true
     }
   },
   data () {
@@ -19,7 +25,8 @@ export default {
     }
   },
   mounted () {
-    this.itemsOnRight = this.items.length - PERSLIDE
+    console.log('kucing', this.itemPerPage)
+    this.itemsOnRight = this.items.length - this.itemPerPage
     this.itemWidth = this.carouselItem.length > 0 && this.carouselItem[0].clientWidth
   },
   computed: {
@@ -35,11 +42,14 @@ export default {
     wrapperStyles () {
       return {transform: `translateX(${this.wrapper.translateX}px)`}
     },
-    onTheFarLeft () {
+    onFirstPage () {
       return this.itemsOnLeft === 0
     },
-    onTheFarRight () {
+    onLastPage () {
       return this.itemsOnRight === 0
+    },
+    widthPerItem () {
+      return `${(WIDTH_PAGE / this.itemPerPage) - SEPARATOR}%`
     }
   },
   methods: {
@@ -62,7 +72,7 @@ export default {
       this.itemsOnRight -= slideCount
     },
     countSlide (remainingItems) {
-      return remainingItems < PERSLIDE ? remainingItems : PERSLIDE
+      return remainingItems < this.itemPerPage ? remainingItems : this.itemPerPage
     }
   }
 }

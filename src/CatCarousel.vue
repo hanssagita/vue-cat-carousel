@@ -1,54 +1,60 @@
 <template>
-  <div class="cat-carousel-container">
-    <div
-      :class="['cat-carousel__navigation', {'cat-carousel__navigation--end': onTheFarLeft}]"
-      @click="prev"
-    >
-      <template>
-        <slot name="prev-navigation">
-          <div class="cat-carousel__default-nav cat-carousel__default-nav--left">
-            <img src="https://i.imgur.com/JkraWHJ.png">
-          </div>
-        </slot>
-      </template>
-    </div>
-    <div
-      ref="carouselContent"
-      class="cat-carousel__content"
-    >
+  <div>
+    <div class="cat-carousel-container">
       <div
-        ref="carouselWrapper"
-        :style="wrapperStyles"
-        class="cat-carousel__content__wrapper"
+              :class="['cat-carousel__navigation', {'cat-carousel__navigation--end': onFirstPage}]">
+        <template>
+          <slot name="prev-navigation" :prev="prev">
+            <div class="cat-carousel__default-nav cat-carousel__default-nav--left" @click="prev">
+              <img src="https://i.imgur.com/JkraWHJ.png">
+            </div>
+          </slot>
+        </template>
+      </div>
+      <div
+              ref="carouselContent"
+              class="cat-carousel__content"
       >
         <div
-          v-for="(item, index) in items"
-          ref="carouselItem"
-          :key="index"
-          class="cat-carousel__content__wrapper__item"
+                ref="carouselWrapper"
+                :style="wrapperStyles"
+                class="cat-carousel__content__wrapper"
         >
-          <template>
-            <slot
-              name="item"
-              :data="item"
-              :index="index"
-            />
-          </template>
+          <div
+                  v-for="(item, index) in items"
+                  ref="carouselItem"
+                  :key="index"
+                  class="cat-carousel__content__wrapper__item"
+                  :style="{width: widthPerItem}"
+          >
+            <template>
+              <slot
+                      name="item"
+                      :data="item"
+                      :index="index"
+              />
+            </template>
+          </div>
         </div>
       </div>
+      <div
+              :class="['cat-carousel__navigation cat-carousel__navigation__next',
+                 {'cat-carousel__navigation--end': onLastPage}]"
+      >
+        <template>
+          <slot name="next-navigation" :next="next">
+            <div class="cat-carousel__default-nav" @click="next">
+              <img src="https://i.imgur.com/JkraWHJ.png">
+            </div>
+          </slot>
+        </template>
+      </div>
     </div>
-    <div
-      :class="['cat-carousel__navigation cat-carousel__navigation__next',
-               {'cat-carousel__navigation--end': onTheFarRight}]"
-      @click="next"
-    >
-      <template>
-        <slot name="next-navigation">
-          <div class="cat-carousel__default-nav">
-            <img src="https://i.imgur.com/JkraWHJ.png">
-          </div>
-        </slot>
-      </template>
+    <div class="cat-carousel__controls">
+      <div class="cat-carousel__controls__item"></div>
+      <div class="cat-carousel__controls__item cat-carousel__controls__item--selected"></div>
+      <div class="cat-carousel__controls__item"></div>
+      <div class="cat-carousel__controls__item"></div>
     </div>
   </div>
 </template>
@@ -76,11 +82,7 @@
           overflow-x: scroll;
         }
         &__item {
-          width: 20%;
           padding: 0 1%;
-          @media only screen and (max-width: 768px) {
-            width: 50%;
-          }
           display: inline-block;
         }
       }
@@ -120,6 +122,21 @@
       &--left {
         img {
           transform: rotate(180deg);
+        }
+      }
+    }
+    &__controls {
+      display: flex;
+      justify-content: center;
+      margin: 8px;
+      &__item {
+        width: 16px;
+        height: 16px;
+        background-color: #d6d6d6;
+        border-radius: 50%;
+        margin: 0 4px;
+        &--selected {
+          background-color: #0095da;
         }
       }
     }
