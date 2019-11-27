@@ -31,12 +31,16 @@ export default {
       itemsOnLeft: 0,
       itemsOnRight: 0,
       maxSlide: 0,
-      track: 0
+      track: 0,
+      slides: [],
+      normalSlideWindow: [],
+      reversedSlideWindow: []
     }
   },
   mounted () {
     this.itemsOnRight = this.items.length - this.itemPerPage
     this.maxSlide = Math.ceil(this.items.length / this.itemPerPage)
+    this.initSlides()
     this.itemWidth = this.carouselItem.length > 0 && this.carouselItem[0].clientWidth
   },
   computed: {
@@ -66,28 +70,33 @@ export default {
     }
   },
   methods: {
+    initSlides () {
+      this.slides = this.addSlides(this.items.length)
+      this.initialSlides = this.slides
+      this.reversedSlides = this.slides.slice().reverse()
+    },
+    addSlides (itemsLength) {
+      if (itemsLength <= 0) return []
+      const count = Math.min(itemsLength, this.itemPerPage)
+      let slides = []
+      slides = slides.concat([count], this.addSlides(itemsLength-count))
+      return slides
+    },
     prev () {
       if (this.onFirstPage) return
-      const slideCount = this.countSlide(this.itemsOnLeft)
-      this.wrapper = Object.assign({}, this.wrapper,{
-        translateX: this.wrapper.translateX + slideCount * this.itemWidth
-      })
-      this.itemsOnLeft -= slideCount
-      this.itemsOnRight += slideCount
       this.track--
+      this.wrapper = Object.assign({}, this.wrapper,{
+        translateX: this.wrapper.translateX + this.slides[this.track] * this.itemWidth
+      })
+      if (this.onFirstPage) this.slides = this.initialSlides
     },
     next () {
       if (this.onLastPage) return
-      const slideCount = this.countSlide(this.itemsOnRight)
-      this.wrapper = Object.assign({}, this.wrapper, {
-        translateX: this.wrapper.translateX - slideCount * this.itemWidth
-      })
-      this.itemsOnLeft += slideCount
-      this.itemsOnRight -= slideCount
       this.track++
-    },
-    countSlide (remainingItems) {
-      return remainingItems < this.itemPerPage ? remainingItems : this.itemPerPage
+      this.wrapper = Object.assign({}, this.wrapper, {
+        translateX: this.wrapper.translateX - this.slides[this.track] * this.itemWidth
+      })
+      if (this.onLastPage) this.slides = this.reversedSlides
     },
     selectedIndicator (index) {
       return index === this.track + 1
