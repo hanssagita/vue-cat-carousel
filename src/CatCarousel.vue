@@ -51,12 +51,12 @@
         </template>
       </div>
     </div>
-    <div class="cat-carousel__controls">
+    <div class="cat-carousel__indicators">
       <div
         v-for="index in maxSlide"
         :key="index"
-        :class="['cat-carousel__controls__item',
-                 {'cat-carousel__controls__item--selected': selectedControl(index)}]"
+        :class="['cat-carousel__indicators__item',
+                 {'cat-carousel__indicators__item--selected': selectedIndicator(index)}]"
       />
     </div>
   </div>
@@ -128,7 +128,7 @@
         }
       }
     }
-    &__controls {
+    &__indicators {
       display: flex;
       justify-content: center;
       margin: 8px;
