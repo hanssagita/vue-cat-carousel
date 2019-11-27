@@ -3,7 +3,8 @@
     {{items.length}}
     <div class="cat-carousel-container">
       <div
-              :class="['cat-carousel__navigation', {'cat-carousel__navigation--end': onFirstPage}]">
+        :class="['cat-carousel__navigation', {'cat-carousel__navigation--end': onFirstPage}]"
+      >
         <template>
           <slot name="prev-navigation" :prev="prev">
             <div class="cat-carousel__default-nav cat-carousel__default-nav--left" @click="prev">
@@ -13,33 +14,33 @@
         </template>
       </div>
       <div
-              ref="carouselContent"
-              class="cat-carousel__content"
+        ref="carouselContent"
+        class="cat-carousel__content"
       >
         <div
-                ref="carouselWrapper"
-                :style="wrapperStyles"
-                class="cat-carousel__content__wrapper"
+          ref="carouselWrapper"
+          :style="wrapperStyles"
+          class="cat-carousel__content__wrapper"
         >
           <div
-                  v-for="(item, index) in items"
-                  ref="carouselItem"
-                  :key="index"
-                  class="cat-carousel__content__wrapper__item"
-                  :style="{width: widthPerItem}"
+            v-for="(item, index) in items"
+            ref="carouselItem"
+            :key="index"
+            class="cat-carousel__content__wrapper__item"
+            :style="{width: widthPerItem}"
           >
             <template>
               <slot
-                      name="item"
-                      :data="item"
-                      :index="index"
+                name="item"
+                :data="item"
+                :index="index"
               />
             </template>
           </div>
         </div>
       </div>
       <div
-              :class="['cat-carousel__navigation cat-carousel__navigation__next',
+        :class="['cat-carousel__navigation cat-carousel__navigation__next',
                  {'cat-carousel__navigation--end': onLastPage}]"
       >
         <template>
@@ -51,13 +52,17 @@
         </template>
       </div>
     </div>
-    <div class="cat-carousel__controls">
-      {{onFirstPage}}
-      <div class="cat-carousel__controls__item"></div>
-      <div class="cat-carousel__controls__item cat-carousel__controls__item--selected"></div>
-      <div class="cat-carousel__controls__item"></div>
-      <div class="cat-carousel__controls__item"></div>
-      {{onLastPage}}
+    <div
+      :class="{'hide': hideIndicators}"
+      class="cat-carousel__indicators"
+    >
+      <div
+        v-for="index in maxSlide"
+        :key="index"
+        :class="['cat-carousel__indicators__item',
+                 {'cat-carousel__indicators__item--selected': selectedIndicator(index)}]"
+        :style="indicatorsItemSizeStyle"
+      />
     </div>
   </div>
 </template>
@@ -128,13 +133,11 @@
         }
       }
     }
-    &__controls {
+    &__indicators {
       display: flex;
       justify-content: center;
       margin: 8px;
       &__item {
-        width: 16px;
-        height: 16px;
         background-color: #d6d6d6;
         border-radius: 50%;
         margin: 0 4px;
@@ -143,5 +146,8 @@
         }
       }
     }
+  }
+  .hide {
+    display: none;
   }
 </style>

@@ -6,12 +6,20 @@ export default {
   props: {
     items: {
       type: Array,
-      default: []
+      default: [],
+      required: true
     },
     itemPerPage: {
       type: Number,
-      default: 5,
-      required: true
+      default: 5
+    },
+    hideIndicators: {
+      type: Boolean,
+      default: false
+    },
+    indicatorsItemSize: {
+      type: Number,
+      default: 16
     }
   },
   data () {
@@ -56,6 +64,9 @@ export default {
     },
     widthPerItem () {
       return `${(WIDTH_PAGE / this.itemPerPage) - SEPARATOR}%`
+    },
+    indicatorsItemSizeStyle () {
+      return `width: ${this.indicatorsItemSize}px; height: ${this.indicatorsItemSize}px;`
     }
   },
   methods: {
@@ -86,6 +97,9 @@ export default {
         translateX: this.wrapper.translateX - this.slides[this.track] * this.itemWidth
       })
       if (this.onLastPage) this.slides = this.reversedSlides
+    },
+    selectedIndicator (index) {
+      return index === this.track + 1
     }
   }
 }

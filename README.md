@@ -37,6 +37,8 @@ How to use it in HTML
 <cat-carousel
     :items="items"
     :item-per-page="5"
+    :hide-indicators="false"
+    :indicators-item-size="10"
   >
     <template
       slot="item"
@@ -70,7 +72,9 @@ Slider：
 | name            | type                             | default    | description                                                            |
 | --------------- | -------------------------------- | ---------- | ---------------------------------------------------------------------- |
 | items           | list                           | []       | List of items in loop                                                        |
-| itemPerPage           | number                           | 5    | List of items in one page                                                        |
+| item-per-page           | number                           | 5    | List of items in one page                                                        |
+| hide-indicators           | boolean                           | false    | show and hide carousel indicators                                                        |
+| indicators-item-size          | Number                           | 16    | define carousel indicators item size                                                       |
 
 
 # License
