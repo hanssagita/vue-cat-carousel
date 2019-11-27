@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{items.length}}
     <div class="cat-carousel-container">
       <div
               :class="['cat-carousel__navigation', {'cat-carousel__navigation--end': onFirstPage}]">
