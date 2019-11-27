@@ -51,12 +51,16 @@
         </template>
       </div>
     </div>
-    <div class="cat-carousel__indicators">
+    <div
+      :class="{'hide': hideIndicators}"
+      class="cat-carousel__indicators"
+    >
       <div
         v-for="index in maxSlide"
         :key="index"
         :class="['cat-carousel__indicators__item',
                  {'cat-carousel__indicators__item--selected': selectedIndicator(index)}]"
+        :style="indicatorsItemSizeStyle"
       />
     </div>
   </div>
@@ -133,8 +137,6 @@
       justify-content: center;
       margin: 8px;
       &__item {
-        width: 16px;
-        height: 16px;
         background-color: #d6d6d6;
         border-radius: 50%;
         margin: 0 4px;
@@ -143,5 +145,8 @@
         }
       }
     }
+  }
+  .hide {
+    display: none;
   }
 </style>
