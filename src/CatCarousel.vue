@@ -2,7 +2,8 @@
   <div>
     <div class="cat-carousel-container">
       <div
-              :class="['cat-carousel__navigation', {'cat-carousel__navigation--end': onFirstPage}]">
+        :class="['cat-carousel__navigation', {'cat-carousel__navigation--end': onFirstPage}]"
+      >
         <template>
           <slot name="prev-navigation" :prev="prev">
             <div class="cat-carousel__default-nav cat-carousel__default-nav--left" @click="prev">
@@ -12,33 +13,33 @@
         </template>
       </div>
       <div
-              ref="carouselContent"
-              class="cat-carousel__content"
+        ref="carouselContent"
+        class="cat-carousel__content"
       >
         <div
-                ref="carouselWrapper"
-                :style="wrapperStyles"
-                class="cat-carousel__content__wrapper"
+          ref="carouselWrapper"
+          :style="wrapperStyles"
+          class="cat-carousel__content__wrapper"
         >
           <div
-                  v-for="(item, index) in items"
-                  ref="carouselItem"
-                  :key="index"
-                  class="cat-carousel__content__wrapper__item"
-                  :style="{width: widthPerItem}"
+            v-for="(item, index) in items"
+            ref="carouselItem"
+            :key="index"
+            class="cat-carousel__content__wrapper__item"
+            :style="{width: widthPerItem}"
           >
             <template>
               <slot
-                      name="item"
-                      :data="item"
-                      :index="index"
+                name="item"
+                :data="item"
+                :index="index"
               />
             </template>
           </div>
         </div>
       </div>
       <div
-              :class="['cat-carousel__navigation cat-carousel__navigation__next',
+        :class="['cat-carousel__navigation cat-carousel__navigation__next',
                  {'cat-carousel__navigation--end': onLastPage}]"
       >
         <template>
@@ -51,12 +52,12 @@
       </div>
     </div>
     <div class="cat-carousel__controls">
-      {{onFirstPage}}
-      <div class="cat-carousel__controls__item"></div>
-      <div class="cat-carousel__controls__item cat-carousel__controls__item--selected"></div>
-      <div class="cat-carousel__controls__item"></div>
-      <div class="cat-carousel__controls__item"></div>
-      {{onLastPage}}
+      <div
+        v-for="index in maxSlide"
+        :key="index"
+        :class="['cat-carousel__controls__item',
+                 {'cat-carousel__controls__item--selected': selectedControl(index)}]"
+      />
     </div>
   </div>
 </template>

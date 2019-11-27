@@ -77,6 +77,9 @@ export default {
     },
     countSlide (remainingItems) {
       return remainingItems < this.itemPerPage ? remainingItems : this.itemPerPage
+    },
+    selectedControl (index) {
+      return index === this.track + 1
     }
   }
 }
