@@ -108,8 +108,14 @@ export default {
       if (!this.touchX) return
       let currentX = event.touches[0].clientX
       let diffX = currentX - this.touchX
-      if (diffX > SWIPE_THRESHOLD) {this.prev(); this.touchX = null}
-      if (diffX < -SWIPE_THRESHOLD) {this.next(); this.touchX = null}
+      if (diffX > SWIPE_THRESHOLD) {
+        this.prev()
+        this.touchX = null
+      }
+      if (diffX < -SWIPE_THRESHOLD) {
+        this.next()
+        this.touchX = null
+      }
     }
   }
 }
