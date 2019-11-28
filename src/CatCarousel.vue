@@ -20,6 +20,8 @@
           ref="carouselWrapper"
           :style="wrapperStyles"
           class="cat-carousel__content__wrapper"
+          @touchstart="touchStart"
+          @touchmove="touchMove"
         >
           <div
             v-for="(item, index) in items"
