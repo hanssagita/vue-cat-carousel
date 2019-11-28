@@ -1,5 +1,6 @@
 const WIDTH_PAGE = 100
 const SEPARATOR = 2
+const SWIPE_THRESHOLD = 80
 
 export default {
   name: 'CatCarousel',
@@ -34,7 +35,8 @@ export default {
       track: 0,
       slides: [],
       normalSlideWindow: [],
-      reversedSlideWindow: []
+      reversedSlideWindow: [],
+      touchX: null
     }
   },
   mounted () {
@@ -100,6 +102,17 @@ export default {
     },
     selectedIndicator (index) {
       return index === this.track + 1
+    },
+    touchStart (event) {
+      this.touchX = event.touches[0].clientX
+    },
+    touchMove (event) {
+      event.preventDefault()
+      if (!this.touchX) return
+      let currentX = event.touches[0].clientX
+      let diffX = currentX - this.touchX
+      if (diffX > SWIPE_THRESHOLD) {this.prev(); this.touchX = null}
+      if (diffX < -SWIPE_THRESHOLD) {this.next(); this.touchX = null}
     }
   }
 }
