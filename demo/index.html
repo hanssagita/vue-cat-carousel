@@ -12,12 +12,17 @@
       height: 200px;
       background-color: #b0b0b0;
     }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
   </style>
 </head>
 
 
 <body>
-<div id="slider">
+<div id="app">
   demo
   <cat-carousel
           :items="people"
@@ -38,7 +43,7 @@
 <script src="../dist/vue-cat-carousel.min.js"></script>
 <script>
   new Vue({
-    el: '#slider',
+    el: '#app',
     data() {
       return {
         itemPerPage: 5,

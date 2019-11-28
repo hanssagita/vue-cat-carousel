@@ -1,5 +1,4 @@
 const WIDTH_PAGE = 100
-const SEPARATOR = 2
 const SWIPE_THRESHOLD = 80
 
 export default {
@@ -62,7 +61,7 @@ export default {
       return this.track === this.maxSlide - 1
     },
     widthPerItem () {
-      return `${(WIDTH_PAGE / this.itemPerPage) - SEPARATOR}%`
+      return `${(WIDTH_PAGE / this.itemPerPage)}%`
     },
     indicatorsItemSizeStyle () {
       return `width: ${this.indicatorsItemSize}px; height: ${this.indicatorsItemSize}px;`
