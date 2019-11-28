@@ -29,8 +29,6 @@ export default {
       wrapper: {
         translateX: 0
       },
-      itemsOnLeft: 0,
-      itemsOnRight: 0,
       maxSlide: 0,
       track: 0,
       slides: [],
@@ -40,7 +38,6 @@ export default {
     }
   },
   mounted () {
-    this.itemsOnRight = this.items.length - this.itemPerPage
     this.maxSlide = Math.ceil(this.items.length / this.itemPerPage)
     this.initSlides()
     this.itemWidth = this.carouselItem.length > 0 && this.carouselItem[0].clientWidth
