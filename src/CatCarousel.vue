@@ -88,13 +88,12 @@
         transition: transform 0.5s ease-out;
         display: flex;
         align-items: flex-start;
-        @media only screen and (max-width: 768px) {
-          overflow-x: scroll;
-        }
+        height: 100%;
         &__item {
           box-sizing: border-box;
           padding: 0 1%;
           display: flex;
+          height: 100%;
         }
       }
     }
