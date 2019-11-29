@@ -12,7 +12,7 @@ or
 npm install --save vue-cat-carousel
 ```
 
-##Preview
+## Preview
 
 Desktop Preview
 
