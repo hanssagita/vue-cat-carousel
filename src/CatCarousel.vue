@@ -82,7 +82,6 @@
     &__content {
       width: 100%;
       overflow: hidden;
-      white-space : nowrap;
       display: inline-block;
       &__wrapper {
         transition: transform 0.5s ease-out;
