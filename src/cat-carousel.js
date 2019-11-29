@@ -61,8 +61,10 @@ export default {
       return this.track === this.maxSlide - 1
     },
     carouselItemStyles () {
+      const width = WIDTH_PAGE / this.itemPerPage
       return {
-        flex: `0 0 ${(WIDTH_PAGE / this.itemPerPage)}%`
+        flex: `0 0 ${width}%`,
+        width: `${width}%`
       }
     },
     indicatorsItemSizeStyle () {
