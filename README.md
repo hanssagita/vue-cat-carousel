@@ -12,6 +12,17 @@ or
 npm install --save vue-cat-carousel
 ```
 
+## Preview
+
+Desktop Preview
+
+![](demo/desktop.gif)
+
+Mobile Preview
+
+![](demo/mobile.gif)
+
+
 ## Usage
 
 Plugin install:
@@ -76,6 +87,47 @@ Slider：
 | hide-indicators           | boolean                           | false    | show and hide carousel indicators                                                        |
 | indicators-item-size          | Number                           | 16    | define carousel indicators item size                                                       |
 
+## Slots
+
+slot | slot-scope | description
+--- | --- | ---
+item | data, index | customize the design of carousel item
+prev-navigation | prev | customize slide left navigation
+next-navigation | next | customize slide right navigation
+
+Previous navigation:
+```HTML
+<cat-carousel
+    :items="items"
+    :item-per-page="5"
+    :hide-indicators="false"
+    :indicators-item-size="10"
+  >
+    <template
+      slot="prev-navigation"
+      slot-scope="{prev}"
+    >
+      <div class="custom-navigation" @click="prev"></div>
+    </template>
+  </cat-carousel>
+```
+
+Next navigation:
+```HTML
+<cat-carousel
+    :items="items"
+    :item-per-page="5"
+    :hide-indicators="false"
+    :indicators-item-size="10"
+  >
+    <template
+      slot="prev-navigation"
+      slot-scope="{next}"
+    >
+      <div class="custom-navigation" @click="next"></div>
+    </template>
+  </cat-carousel>
+```
 
 # License
 

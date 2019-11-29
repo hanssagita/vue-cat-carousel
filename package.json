@@ -1,6 +1,6 @@
 {
   "name": "vue-cat-carousel",
-  "version": "0.6.0",
+  "version": "0.7.3",
   "description": "vue-cat-carousel is a slider component of Vue.js.",
   "keywords": [
     "slide",
@@ -34,7 +34,8 @@
     "build:umd": "cross-env NODE_ENV=production rollup --config build/rollup.config.umd.js",
     "dev": "cross-env NODE_ENV=development rollup --config build/rollup.config.browser.js --watch",
     "test": "jest",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.29",

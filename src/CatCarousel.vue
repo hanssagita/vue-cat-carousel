@@ -20,13 +20,15 @@
           ref="carouselWrapper"
           :style="wrapperStyles"
           class="cat-carousel__content__wrapper"
+          @touchstart="touchStart"
+          @touchmove="touchMove"
         >
           <div
             v-for="(item, index) in items"
             ref="carouselItem"
             :key="index"
             class="cat-carousel__content__wrapper__item"
-            :style="{width: widthPerItem}"
+            :style="carouselItemStyles"
           >
             <template>
               <slot
@@ -80,17 +82,17 @@
     &__content {
       width: 100%;
       overflow: hidden;
-      white-space : nowrap;
       display: inline-block;
-      box-sizing: border-box;
       &__wrapper {
         transition: transform 0.5s ease-out;
-        @media only screen and (max-width: 768px) {
-          overflow-x: scroll;
-        }
+        display: flex;
+        align-items: flex-start;
+        height: 100%;
         &__item {
+          box-sizing: border-box;
           padding: 0 1%;
-          display: inline-block;
+          display: flex;
+          height: 100%;
         }
       }
     }
