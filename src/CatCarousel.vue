@@ -28,7 +28,7 @@
             ref="carouselItem"
             :key="index"
             class="cat-carousel__content__wrapper__item"
-            :style="{width: widthPerItem}"
+            :style="carouselItemStyles"
           >
             <template>
               <slot
@@ -84,15 +84,17 @@
       overflow: hidden;
       white-space : nowrap;
       display: inline-block;
-      box-sizing: border-box;
       &__wrapper {
         transition: transform 0.5s ease-out;
+        display: flex;
+        align-items: flex-start;
         @media only screen and (max-width: 768px) {
           overflow-x: scroll;
         }
         &__item {
+          box-sizing: border-box;
           padding: 0 1%;
-          display: inline-block;
+          display: flex;
         }
       }
     }

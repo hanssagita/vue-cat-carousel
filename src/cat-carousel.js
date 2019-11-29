@@ -60,8 +60,10 @@ export default {
     onLastPage () {
       return this.track === this.maxSlide - 1
     },
-    widthPerItem () {
-      return `${(WIDTH_PAGE / this.itemPerPage)}%`
+    carouselItemStyles () {
+      return {
+        flex: `0 0 ${(WIDTH_PAGE / this.itemPerPage)}%`
+      }
     },
     indicatorsItemSizeStyle () {
       return `width: ${this.indicatorsItemSize}px; height: ${this.indicatorsItemSize}px;`
