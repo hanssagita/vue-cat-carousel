@@ -12,6 +12,17 @@ or
 npm install --save vue-cat-carousel
 ```
 
+##Preview
+
+Desktop Preview
+
+![](demo/desktop.gif)
+
+Mobile Preview
+
+![](demo/mobile.gif)
+
+
 ## Usage
 
 Plugin install:
