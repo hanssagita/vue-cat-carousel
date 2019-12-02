@@ -60,9 +60,8 @@
       <div
         v-for="index in maxSlide"
         :key="index"
-        :class="['cat-carousel__indicators__item',
-                 {'cat-carousel__indicators__item--selected': selectedIndicator(index)}]"
-        :style="indicatorsItemSizeStyle"
+        :class="['cat-carousel__indicators__item']"
+        :style="[indicatorsItemSizeStyle, selectedIndicator(index) && activeIndicatorStyle]"
       />
     </div>
   </div>
@@ -139,12 +138,8 @@
       justify-content: center;
       margin: 8px;
       &__item {
-        background-color: #d6d6d6;
         border-radius: 50%;
         margin: 0 4px;
-        &--selected {
-          background-color: #0095da;
-        }
       }
     }
   }
