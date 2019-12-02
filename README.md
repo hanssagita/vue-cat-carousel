@@ -85,7 +85,15 @@ Slider：
 | items           | list                           | []       | List of items in loop                                                        |
 | item-per-page           | number                           | 5    | List of items in one page                                                        |
 | hide-indicators           | boolean                           | false    | show and hide carousel indicators                                                        |
-| indicators-item-size          | Number                           | 16    | define carousel indicators item size                                                       |
+| indicators-config          | Object                           | INDICATORS_DEFAULT_CONFIG    | define carousel indicators item size                                                       |
+
+INDICATORS_DEFAULT_CONFIG
+
+property | type | value | description
+--- | --- | --- | ---
+size | number | 16 | size of indicators in pixel
+color | string | '#d6d6d6' | color of indicators (hex, rgb, etc)
+activeColor | string | '#0095da' | color of active indicator (hex, rgb, etc)
 
 ## Slots
 
