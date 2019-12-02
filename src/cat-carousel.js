@@ -20,6 +20,10 @@ export default {
     indicatorsItemSize: {
       type: Number,
       default: 16
+    },
+    activeIndicatorColor: {
+      type: String,
+      default: '#0095da'
     }
   },
   data () {
@@ -68,7 +72,15 @@ export default {
       }
     },
     indicatorsItemSizeStyle () {
-      return `width: ${this.indicatorsItemSize}px; height: ${this.indicatorsItemSize}px;`
+      return {
+        width: `${this.indicatorsItemSize}px`,
+        height: `${this.indicatorsItemSize}px`
+      }
+    },
+    activeIndicatorStyle () {
+      return {
+        backgroundColor: this.activeIndicatorColor
+      }
     }
   },
   methods: {

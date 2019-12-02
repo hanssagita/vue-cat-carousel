@@ -60,9 +60,8 @@
       <div
         v-for="index in maxSlide"
         :key="index"
-        :class="['cat-carousel__indicators__item',
-                 {'cat-carousel__indicators__item--selected': selectedIndicator(index)}]"
-        :style="indicatorsItemSizeStyle"
+        :class="['cat-carousel__indicators__item']"
+        :style="[indicatorsItemSizeStyle, selectedIndicator(index) && activeIndicatorStyle]"
       />
     </div>
   </div>
