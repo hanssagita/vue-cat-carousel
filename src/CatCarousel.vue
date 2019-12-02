@@ -138,12 +138,8 @@
       justify-content: center;
       margin: 8px;
       &__item {
-        background-color: #d6d6d6;
         border-radius: 50%;
         margin: 0 4px;
-        &--selected {
-          background-color: #0095da;
-        }
       }
     }
   }

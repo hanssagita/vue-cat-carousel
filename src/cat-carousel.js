@@ -1,5 +1,10 @@
 const WIDTH_PAGE = 100
 const SWIPE_THRESHOLD = 80
+const INDICATORS_DEFAULT_CONFIG = {
+  size: 16,
+  color: '#d6d6d6',
+  activeColor: '#0095da'
+}
 
 export default {
   name: 'CatCarousel',
@@ -17,13 +22,11 @@ export default {
       type: Boolean,
       default: false
     },
-    indicatorsItemSize: {
-      type: Number,
-      default: 16
-    },
-    activeIndicatorColor: {
-      type: String,
-      default: '#0095da'
+    indicatorsConfig: {
+      type: Object,
+      default: () => {
+        return INDICATORS_DEFAULT_CONFIG
+      }
     }
   },
   data () {
@@ -72,14 +75,16 @@ export default {
       }
     },
     indicatorsItemSizeStyle () {
+      const size = this.indicatorsConfig.size || INDICATORS_DEFAULT_CONFIG.size
       return {
-        width: `${this.indicatorsItemSize}px`,
-        height: `${this.indicatorsItemSize}px`
+        width: `${size}px`,
+        height: `${size}px`,
+        backgroundColor: this.indicatorsConfig.color || INDICATORS_DEFAULT_CONFIG.color
       }
     },
     activeIndicatorStyle () {
       return {
-        backgroundColor: this.activeIndicatorColor
+        backgroundColor: this.indicatorsConfig.activeColor || INDICATORS_DEFAULT_CONFIG.activeColor
       }
     }
   },
