@@ -1,7 +1,7 @@
 # 🐱🐱🐱 Vue-Cat-Carousel 🐱🐱🐱
 
 
-Simple and lightest Carousel 
+Simple, customizable, reactive and lightest Carousel 
 
 
 ## Install
