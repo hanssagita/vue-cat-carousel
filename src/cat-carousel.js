@@ -3,7 +3,8 @@ const SWIPE_THRESHOLD = 80
 const INDICATORS_DEFAULT_CONFIG = {
   size: 16,
   color: '#d6d6d6',
-  activeColor: '#0095da'
+  activeColor: '#0095da',
+  hideIndicators: false
 }
 
 export default {
@@ -17,10 +18,6 @@ export default {
     itemPerPage: {
       type: Number,
       default: 5
-    },
-    hideIndicators: {
-      type: Boolean,
-      default: false
     },
     indicatorsConfig: {
       type: Object,
@@ -86,6 +83,9 @@ export default {
       return {
         backgroundColor: this.indicatorsConfig.activeColor || INDICATORS_DEFAULT_CONFIG.activeColor
       }
+    },
+    hideIndicators () {
+      return this.indicatorsConfig.hideIndicators || INDICATORS_DEFAULT_CONFIG.hideIndicators
     }
   },
   methods: {

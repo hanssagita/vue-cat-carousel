@@ -48,8 +48,7 @@ How to use it in HTML
 <cat-carousel
     :items="items"
     :item-per-page="5"
-    :hide-indicators="false"
-    :indicators-item-size="10"
+    :indicators-config="{activeColor: '#000', size: 10, color: '#d1d1d1', hideIndicators: false}"
   >
     <template
       slot="item"
@@ -84,7 +83,6 @@ Slider：
 | --------------- | -------------------------------- | ---------- | ---------------------------------------------------------------------- |
 | items           | list                           | []       | List of items in loop                                                        |
 | item-per-page           | number                           | 5    | List of items in one page                                                        |
-| hide-indicators           | boolean                           | false    | show and hide carousel indicators                                                        |
 | indicators-config          | Object                           | INDICATORS_DEFAULT_CONFIG    | define carousel indicators item size                                                       |
 
 INDICATORS_DEFAULT_CONFIG
@@ -94,6 +92,7 @@ property | type | value | description
 size | number | 16 | size of indicators in pixel
 color | string | '#d6d6d6' | color of indicators (hex, rgb, etc)
 activeColor | string | '#0095da' | color of active indicator (hex, rgb, etc)
+hideIndicators | boolean | false | show and hide carousel indicators
 
 ## Slots
 
@@ -108,8 +107,7 @@ Previous navigation:
 <cat-carousel
     :items="items"
     :item-per-page="5"
-    :hide-indicators="false"
-    :indicators-item-size="10"
+    :indicators-config="{activeColor: '#000', size: 10, color: '#d1d1d1', hideIndicators: false}"
   >
     <template
       slot="prev-navigation"
@@ -125,8 +123,7 @@ Next navigation:
 <cat-carousel
     :items="items"
     :item-per-page="5"
-    :hide-indicators="false"
-    :indicators-item-size="10"
+    :indicators-config="{activeColor: '#000', size: 10, color: '#d1d1d1', hideIndicators: false}"
   >
     <template
       slot="prev-navigation"
