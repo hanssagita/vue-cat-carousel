@@ -129,7 +129,6 @@ export default {
       this.touchX = event.touches[0].clientX
     },
     touchMove (event) {
-      event.preventDefault()
       if (!this.touchX) return
       let currentX = event.touches[0].clientX
       let diffX = currentX - this.touchX
