@@ -41,11 +41,14 @@ export default {
     }
   },
   mounted () {
+    this.maxSlide = Math.ceil(this.items.length / this.itemPerPage)
+    this.itemWidth = this.carouselItem.length > 0 && this.carouselItem[0].clientWidth
     this.initSlides()
   },
   watch: {
     items () {
-      this.initSlides()
+      this.maxSlide = Math.ceil(this.items.length / this.itemPerPage)
+      this.itemWidth = this.carouselItem.length > 0 && this.carouselItem[0].clientWidth
     }
   },
   computed: {
@@ -93,11 +96,9 @@ export default {
   },
   methods: {
     initSlides () {
-      this.maxSlide = Math.ceil(this.items.length / this.itemPerPage);
       this.slides = this.addSlides(this.items.length)
       this.initialSlides = this.slides
       this.reversedSlides = this.slides.slice().reverse()
-      this.itemWidth = this.carouselItem.length > 0 && this.carouselItem[0].clientWidth
     },
     addSlides (itemsLength) {
       if (itemsLength <= 0) return []
@@ -129,7 +130,6 @@ export default {
       this.touchX = event.touches[0].clientX
     },
     touchMove (event) {
-      event.preventDefault()
       if (!this.touchX) return
       let currentX = event.touches[0].clientX
       let diffX = currentX - this.touchX
