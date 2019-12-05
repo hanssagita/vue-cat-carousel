@@ -1,8 +1,8 @@
 # 🐱🐱🐱 Vue-Cat-Carousel 🐱🐱🐱
 
 
-Simple and lightweight Carousel which supports props reactivity and slot customization.
-Specify custom navigation buttons and carousel items, the library simply handle slide mechanisms. 
+Simple, customizable, reactive and lightest Carousel 
+
 
 ## Install
 
