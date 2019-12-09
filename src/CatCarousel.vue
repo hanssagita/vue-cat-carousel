@@ -7,7 +7,7 @@
         <template>
           <slot name="prev-navigation" :prev="prev">
             <div class="cat-carousel__default-nav cat-carousel__default-nav--left" @click="prev">
-              <img src="https://i.imgur.com/JkraWHJ.png">
+              <img src="https://i.imgur.com/PpHTPrc.png">
             </div>
           </slot>
         </template>
@@ -47,7 +47,7 @@
         <template>
           <slot name="next-navigation" :next="next">
             <div class="cat-carousel__default-nav" @click="next">
-              <img src="https://i.imgur.com/JkraWHJ.png">
+              <img src="https://i.imgur.com/PpHTPrc.png">
             </div>
           </slot>
         </template>
@@ -104,28 +104,29 @@
         right: 0;
       }
       &--end {
-        opacity: 0.5;
+        display: none;
       }
     }
     &__default-nav {
-      width: 32px;
-      height: 72px;
+      width: 48px;
+      height: 48px;
+      opacity: 0.88;
+      box-shadow: 0 0 24px -4px rgba(0, 0, 0, 0.24);
+      background-color: #ffffff;
       display: flex;
       justify-content: center;
       align-content: center;
       align-items: center;
-      border-radius: 5px;
-      box-shadow: 1px 2px 5px -1px #b0b0b0;
+      border-radius: 50%;
       border-right: 1px solid #eee;
-      background-color: rgba(255, 255, 255, 0.2);
       cursor: pointer;
       z-index: 2;
       @media only screen and (max-width: 768px) {
         display: none;
       }
       img {
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
       }
       &--left {
         img {
