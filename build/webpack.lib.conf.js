@@ -1,4 +1,3 @@
-const path = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
@@ -7,8 +6,8 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
-const webpackConfig = merge(baseWebpackConfig, {
-  mode: 'development',
+const webpackLibConfig = merge(baseWebpackConfig, {
+  mode: 'production',
   devtool: config.lib.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.lib.assetsRoot,
@@ -20,7 +19,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     minimize: true
   },
   plugins: [
-    // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': config.lib.env
     }),
@@ -37,9 +35,9 @@ const webpackConfig = merge(baseWebpackConfig, {
 if (config.lib.productionGzip) {
   var CompressionWebpackPlugin = require('compression-webpack-plugin')
 
-  webpackConfig.plugins.push(
+  webpackLibConfig.plugins.push(
     new CompressionWebpackPlugin({
-      asset: '[path].gz[query]',
+      filename: '[path].gz[query]',
       algorithm: 'gzip',
       test: new RegExp(
         '\\.(' +
@@ -53,8 +51,8 @@ if (config.lib.productionGzip) {
 }
 
 if (config.lib.bundleAnalyzerReport) {
-  var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-  webpackConfig.plugins.push(new BundleAnalyzerPlugin())
+  let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+  webpackLibConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
-module.exports = webpackConfig
+module.exports = webpackLibConfig
