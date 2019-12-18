@@ -3,6 +3,7 @@ const utils = require('./utils')
 const config = require('../config')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+const createMinifier = require("css-loader-minify-class");
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -47,15 +48,16 @@ module.exports = {
             options: {
               sourceMap: isDev,
               modules: {
-                localIdentName: '[hash:base64:8]'// '[local]_[hash:base64:8]'
+                localIdentName: '[hash:base64:8]', // '[local]_[hash:base64:8]'
+                getLocalIdent: createMinifier()
               }
             }
           },
-          { 
-            loader: 'sass-loader', 
-            options: { 
+          {
+            loader: 'sass-loader',
+            options: {
               sourceMap: isDev
-            } 
+            }
           }
         ]
       },
