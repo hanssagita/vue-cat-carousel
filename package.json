@@ -17,10 +17,7 @@
     "url": "https://github.com/hanssagita/vue-cat-carousel"
   },
   "license": "MIT",
-  "main": "dist/vue-cat-carousel.umd.js",
-  "module": "dist/vue-cat-carousel.esm.js",
-  "unpkg": "dist/vue-cat-carousel.min.js",
-  "jsdelivr": "dist/vue-cat-carousel.min.js",
+  "main": "dist/lib/vue-cat-carousel.min.js",
   "typings": "types/index.d.ts",
   "files": [
     "src",
@@ -28,9 +25,8 @@
     "types/*.d.ts"
   ],
   "scripts": {
-    "dev": "npm run dev:lib && npm run build:lib",
-    "build:lib": "webpack --config build/webpack.lib.conf.js --watch --progress --hide-modules --report",
-    "dev:lib": "webpack-dev-server --config build/webpack.dev.conf.js",
+    "build": "webpack --config build/webpack.lib.conf.js --env.NODE_ENV=production  --report",
+    "dev": "webpack-dev-server --config build/webpack.dev.conf.js",
     "prepublish": "npm run build:lib",
     "test": "jest"
   },
@@ -46,9 +42,11 @@
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.8.0",
     "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "sass-loader": "^8.0.0",
     "stylus": "^0.54.5",
+    "terser-webpack-plugin": "^2.3.1",
     "uglify-es": "^3.3.9",
     "url-loader": "^3.0.0",
     "vue": "^2.6.10",

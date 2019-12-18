@@ -5,6 +5,7 @@ const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const webpackLibConfig = merge(baseWebpackConfig, {
   mode: 'production',
@@ -16,18 +17,27 @@ const webpackLibConfig = merge(baseWebpackConfig, {
     libraryTarget: 'umd'
   },
   optimization: {
-    minimize: true
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        terserOptions: {
+          ecma: 6,
+        },
+      }),
+      new OptimizeCSSPlugin({
+        cssProcessorOptions: {
+          safe: true
+        }
+      })
+    ]
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': config.lib.env
     }),
-    new MiniCSSExtractPlugin(),
-    // duplicated CSS from different components can be deduped.
-    new OptimizeCSSPlugin({
-      cssProcessorOptions: {
-        safe: true
-      }
+    new MiniCSSExtractPlugin({
+      filename: 'vue-cat-carousel.css',
     })
   ]
 })
