@@ -1,7 +1,8 @@
 'use strict'
-const { VueLoaderPlugin } = require('vue-loader')
 const utils = require('./utils')
 const config = require('../config')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -41,7 +42,15 @@ module.exports = {
         test: /\.s(c|a)ss$/,
         use: [
           'vue-style-loader', // isDev ? 'vue-style-loader' : MiniCSSExtractPlugin.loader,
-          { loader: 'css-loader', options: { sourceMap: isDev } },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: isDev,
+              modules: {
+                localIdentName: '[hash:base64:8]'// '[local]_[hash:base64:8]'
+              }
+            }
+          },
           { 
             loader: 'sass-loader', 
             options: { 

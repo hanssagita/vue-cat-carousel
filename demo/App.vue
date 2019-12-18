@@ -9,29 +9,29 @@
               slot="item"
               slot-scope="{data, index}"
       >
-        <div class="h-carousel__item">
-          <div class="h-carousel__item__image">
+        <div :class="$style['h-carousel__item']">
+          <div :class="$style['h-carousel__item__image']">
             <img :src="data.image">
           </div>
-          <div class="h-carousel__item__name">
+          <div :class="$style['h-carousel__item__name']">
             {{ data.name }}</div>
-          <div class="h-carousel__item__price">
-            <div class="h-carousel__item__price--strikethrough">{{ data.price.listed }}</div>
-            <div class="h-carousel__item__price__display">{{ data.price.offered }}
-              <span class="h-carousel__item__price--discount">(-{{ data.price.discount }})%</span>
+          <div :class="$style['h-carousel__item__price']">
+            <div :class="$style['h-carousel__item__price--strikethrough']">{{ data.price.listed }}</div>
+            <div :class="$style['h-carousel__item__price__display']">{{ data.price.offered }}
+              <span :class="$style['h-carousel__item__price--discount']">(-{{ data.price.discount }})%</span>
             </div>
           </div>
-          <div class="h-carousel__item__info">
-            <div class="h-carousel__item__info__installment">Installment 0%</div>
+          <div :class="$style['h-carousel__item__info']">
+            <div :class="$style['h-carousel__item__info__installment']">Installment 0%</div>
           </div>
-          <div class="h-carousel__item__rating">
+          <div :class="$style['h-carousel__item__rating']">
           <span
-                  class="h-carousel__item__rating__star"
+                  :class="$style['h-carousel__item__rating__star']"
                   v-for="(n, idx) in 5"
                   :key="idx">
         <img src="https://i.imgur.com/GutCBw7.png">
       </span>
-            <span class="h-carousel__item__rating__info"> {{ data.review.count }} Review</span>
+            <span :class="$style['h-carousel__item__rating__info']"> {{ data.review.count }} Review</span>
           </div>
         </div>
       </template>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-  const {CatCarousel} = require('../src/lib')
+  const {CatCarousel} = require('../dist/lib/vue-cat-carousel.min')
   const mockData = require('./mock.js')
 
   export default {
@@ -57,7 +57,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped module>
   p {
     margin: 0;
   }

@@ -1,12 +1,13 @@
 <template>
   <div>
-    <div class="cat-carousel-container">
+    <div :class="$style['cat-carousel-container']">
       <div
-        :class="['cat-carousel__navigation', {'cat-carousel__navigation--end': onFirstPage}]"
+        :class="[$style['cat-carousel__navigation'], {[$style['cat-carousel__navigation--end']]: onFirstPage}]"
       >
         <template>
           <slot name="prev-navigation" :prev="prev">
-            <div class="cat-carousel__default-nav cat-carousel__default-nav--left" @click="prev">
+            <div :class="[$style['cat-carousel__default-nav'], $style['cat-carousel__default-nav--left']]"
+                 @click="prev">
               <img src="https://i.imgur.com/PpHTPrc.png">
             </div>
           </slot>
@@ -14,12 +15,12 @@
       </div>
       <div
         ref="carouselContent"
-        class="cat-carousel__content"
+        :class="$style['cat-carousel__content']"
       >
         <div
           ref="carouselWrapper"
           :style="wrapperStyles"
-          class="cat-carousel__content__wrapper"
+          :class="$style['cat-carousel__content__wrapper']"
           @touchstart="touchStart"
           @touchmove="touchMove"
         >
@@ -27,7 +28,7 @@
             v-for="(item, index) in items"
             ref="carouselItem"
             :key="index"
-            class="cat-carousel__content__wrapper__item"
+            :class="$style['cat-carousel__content__wrapper__item']"
             :style="carouselItemStyles"
           >
             <template>
@@ -41,12 +42,12 @@
         </div>
       </div>
       <div
-        :class="['cat-carousel__navigation cat-carousel__navigation__next',
-                 {'cat-carousel__navigation--end': onLastPage}]"
+        :class="[$style['cat-carousel__navigation'], $style['cat-carousel__navigation__next'],
+                 {[$style['cat-carousel__navigation--end']]: onLastPage}]"
       >
         <template>
           <slot name="next-navigation" :next="next">
-            <div class="cat-carousel__default-nav" @click="next">
+            <div :class="$style['cat-carousel__default-nav']" @click="next">
               <img src="https://i.imgur.com/PpHTPrc.png">
             </div>
           </slot>
@@ -54,13 +55,12 @@
       </div>
     </div>
     <div
-      :class="{'hide': hideIndicators}"
-      class="cat-carousel__indicators"
+      :class="[$style['cat-carousel__indicators'], {[$style.hide]: hideIndicators}]"
     >
       <div
         v-for="index in maxSlide"
         :key="index"
-        :class="['cat-carousel__indicators__item']"
+        :class="$style['cat-carousel__indicators__item']"
         :style="[indicatorsItemSizeStyle, selectedIndicator(index) && activeIndicatorStyle]"
       />
     </div>
@@ -69,7 +69,7 @@
 
 <script src="./cat-carousel.js"></script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped module>
   .cat-carousel-container {
     display: flex;
     position: relative;
