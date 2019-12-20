@@ -49,6 +49,7 @@ export default {
     items () {
       this.maxSlide = Math.ceil(this.items.length / this.itemPerPage)
       this.itemWidth = this.carouselItem.length > 0 && this.carouselItem[0].clientWidth
+      this.initSlides()
     }
   },
   computed: {
