@@ -1,5 +1,9 @@
 const WIDTH_PAGE = 100
 const SWIPE_THRESHOLD = 80
+const CENTER_MODE_DEFAULT_CONFIG = {
+  enabled: false,
+  paddingCenter: 10
+}
 const INDICATORS_DEFAULT_CONFIG = {
   size: 16,
   color: '#d6d6d6',
@@ -24,6 +28,10 @@ export default {
       default: () => {
         return INDICATORS_DEFAULT_CONFIG
       }
+    },
+    centerMode: {
+      type: Object,
+      default: CENTER_MODE_DEFAULT_CONFIG
     }
   },
   data () {
@@ -62,6 +70,10 @@ export default {
       return this.$refs.carouselWrapper
     },
     wrapperStyles () {
+      if (this.centerMode.enabled) {
+        return {transform: `translateX(calc(${this.wrapper.translateX}px + ${this.centerMode.paddingCenter}%)`}
+      }
+
       return {transform: `translateX(${this.wrapper.translateX}px)`}
     },
     onFirstPage () {
@@ -71,7 +83,14 @@ export default {
       return this.track === this.maxSlide - 1
     },
     carouselItemStyles () {
-      const width = WIDTH_PAGE / this.itemPerPage
+      let width = WIDTH_PAGE / this.itemPerPage
+
+      if (this.centerMode.enabled) {
+        console.log(this.centerMode)
+
+        width = width * (1 - this.centerMode.paddingCenter / 100 * 2)
+      }
+
       return {
         flex: `0 0 ${width}%`,
         width: `${width}%`

@@ -83,6 +83,7 @@ Slider：
 | --------------- | -------------------------------- | ---------- | ---------------------------------------------------------------------- |
 | items           | list                           | []       | List of items in loop                                                        |
 | item-per-page           | number                           | 5    | List of items in one page                                                        |
+| centerMode           | Object                           | CENTER_MODE_DEFAULT_CONFIG    | Allow to center carousel item with partial prev/next slides                                                        |
 | indicators-config          | Object                           | INDICATORS_DEFAULT_CONFIG    | define carousel indicators item size                                                       |
 
 INDICATORS_DEFAULT_CONFIG
@@ -93,6 +94,15 @@ size | number | 16 | size of indicators in pixel
 color | string | '#d6d6d6' | color of indicators (hex, rgb, etc)
 activeColor | string | '#0095da' | color of active indicator (hex, rgb, etc)
 hideIndicators | boolean | false | show and hide carousel indicators
+
+INDICATORS_DEFAULT_CONFIG
+
+property | type | value | description
+--- | --- | --- | ---
+enabled | boolean | false | enable center mode carousel
+paddingCenter | number | 10 | sizes of padding in percentage
+
+
 
 ## Slots
 
@@ -131,6 +141,20 @@ Next navigation:
     >
       <div class="custom-navigation" @click="next"></div>
     </template>
+  </cat-carousel>
+```
+
+Center mode carousel:
+
+![](demo/center-mode.png)
+
+```HTML
+<cat-carousel
+    :items="items"
+    :item-per-page="5"
+    :centerMode="{enabled: true, paddingCenter: 10}"
+    :indicators-config="{activeColor: '#000', size: 10, color: '#d1d1d1', hideIndicators: false}"
+  >
   </cat-carousel>
 ```
 

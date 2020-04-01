@@ -107,6 +107,7 @@
   <cat-carousel
           :items="products"
           :item-per-page="itemPerPage"
+          :center-mode="centerMode"
           :indicators-config="{activeColor: '#000', size: 10, color: '#d1d1d1', hideIndicators: false}"
   >
     <template
@@ -149,7 +150,11 @@
     el: '#app',
     data() {
       return {
-        itemPerPage: 5,
+        itemPerPage: 1,
+        centerMode: {
+          enabled: true,
+          paddingCenter: 10
+        },
         products: [
           {
             "id": "ps--SUS-34874-12213",
