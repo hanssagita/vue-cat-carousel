@@ -99,13 +99,60 @@
       width: 32px;
       height: 32px;
     }
+
+    hr {
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
   </style>
 </head>
 
 <body>
 <div id="app">
+  <h2>Default Mode</h2>
   <cat-carousel
           :items="products"
+          :item-per-page="itemPerPage"
+          :indicators-config="{activeColor: '#000', size: 10, color: '#d1d1d1', hideIndicators: false}"
+  >
+    <template
+      slot="item"
+      slot-scope="{data, index}"
+    >
+      <div class="h-carousel__item">
+        <div class="h-carousel__item__image">
+          <img :src="data.image">
+        </div>
+        <div class="h-carousel__item__name">
+          {{ data.name }}</div>
+        <div class="h-carousel__item__price">
+          <div class="h-carousel__item__price--strikethrough">{{ data.price.listed }}</div>
+          <div class="h-carousel__item__price__display">{{ data.price.offered }}
+            <span class="h-carousel__item__price--discount">(-{{ data.price.discount }})%</span>
+          </div>
+        </div>
+        <div class="h-carousel__item__info">
+          <div class="h-carousel__item__info__installment">Installment 0%</div>
+        </div>
+        <div class="h-carousel__item__rating">
+          <span
+            class="h-carousel__item__rating__star"
+            v-for="(n, idx) in 5"
+            :key="idx">
+        <img src="https://i.imgur.com/GutCBw7.png">
+      </span>
+          <span class="h-carousel__item__rating__info"> {{ data.review.count }} Review</span>
+        </div>
+      </div>
+    </template>
+  </cat-carousel>
+
+  <hr/>
+
+  <h2>Center Mode</h2>
+  <cat-carousel
+          :items="products"
+          :center-mode="{enabled: true, paddingCenter: 10}"
           :item-per-page="itemPerPage"
           :indicators-config="{activeColor: '#000', size: 10, color: '#d1d1d1', hideIndicators: false}"
   >
