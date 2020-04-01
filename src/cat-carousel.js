@@ -86,8 +86,6 @@ export default {
       let width = WIDTH_PAGE / this.itemPerPage
 
       if (this.centerMode.enabled) {
-        console.log(this.centerMode)
-
         width = width * (1 - this.centerMode.paddingCenter / 100 * 2)
       }
 
