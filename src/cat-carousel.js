@@ -31,7 +31,9 @@ export default {
     },
     centerMode: {
       type: Object,
-      default: CENTER_MODE_DEFAULT_CONFIG
+      default: () => {
+		return CENTER_MODE_DEFAULT_CONFIG
+	  }
     }
   },
   data () {
