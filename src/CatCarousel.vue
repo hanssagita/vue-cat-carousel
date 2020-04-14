@@ -28,6 +28,7 @@
             ref="carouselItem"
             :key="index"
             class="cat-carousel__content__wrapper__item"
+            :class="{ 'active': carouselCurrentFirstActiveIndex <= item && item <= carouselCurrentLastActiveIndex }"
             :style="carouselItemStyles"
           >
             <template>
