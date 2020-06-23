@@ -96,6 +96,12 @@ export default {
         width: `${width}%`
       }
     },
+    carouselCurrentFirstActiveIndex () {
+      return this.track * this.itemPerPage 
+    },
+    carouselCurrentLastActiveIndex () {
+      return (this.track + 1) * this.itemPerPage - 1 
+    },
     indicatorsItemSizeStyle () {
       const size = this.indicatorsConfig.size || INDICATORS_DEFAULT_CONFIG.size
       return {
