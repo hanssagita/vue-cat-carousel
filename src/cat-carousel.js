@@ -74,7 +74,7 @@ export default {
       return this.$refs.carouselWrapper
     },
     itemWidth () {
-      return this.carouselItem.length > 0 && this.carouselItem[0].clientWidth
+      return this.carouselItem && this.carouselItem.length > 0 && this.carouselItem[0].clientWidth
     },
     wrapperStyles () {
       if (this.centerMode.enabled) {
