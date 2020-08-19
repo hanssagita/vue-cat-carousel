@@ -34,6 +34,10 @@ export default {
       default: () => {
         return CENTER_MODE_DEFAULT_CONFIG
       }
+    },
+    prefix: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -102,10 +106,10 @@ export default {
       }
     },
     carouselCurrentFirstActiveIndex () {
-      return this.track * this.itemPerPage 
+      return this.track * this.itemPerPage
     },
     carouselCurrentLastActiveIndex () {
-      return (this.track + 1) * this.itemPerPage - 1 
+      return (this.track + 1) * this.itemPerPage - 1
     },
     indicatorsItemSizeStyle () {
       const size = this.indicatorsConfig.size || INDICATORS_DEFAULT_CONFIG.size
