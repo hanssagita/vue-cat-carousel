@@ -94,6 +94,7 @@ size | number | 16 | size of indicators in pixel
 color | string | '#d6d6d6' | color of indicators (hex, rgb, etc)
 activeColor | string | '#0095da' | color of active indicator (hex, rgb, etc)
 hideIndicators | boolean | false | show and hide carousel indicators
+prefix | string | '' | add prefix for :key item name
 
 INDICATORS_DEFAULT_CONFIG
 
@@ -134,6 +135,7 @@ Next navigation:
     :items="items"
     :item-per-page="5"
     :indicators-config="{activeColor: '#000', size: 10, color: '#d1d1d1', hideIndicators: false}"
+    :prefix="'nike'"
   >
     <template
       slot="prev-navigation"
