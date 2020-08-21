@@ -26,7 +26,7 @@
           <div
             v-for="(item, index) in items"
             ref="carouselItem"
-            :key="index"
+            :key="prefix + index"
             class="cat-carousel__content__wrapper__item"
             :class="{ 'active': carouselCurrentFirstActiveIndex <= item && item <= carouselCurrentLastActiveIndex }"
             :style="carouselItemStyles"
@@ -60,7 +60,7 @@
     >
       <div
         v-for="index in maxSlide"
-        :key="prefix + index"
+        :key="index"
         class="cat-carousel__indicators__item"
         :class="{ 'active': (track + 1) === index }"
         :style="[indicatorsItemSizeStyle, selectedIndicator(index) && activeIndicatorStyle]"
