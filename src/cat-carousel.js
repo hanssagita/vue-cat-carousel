@@ -65,6 +65,9 @@ export default {
       this.track = 0
       this.maxSlide = Math.ceil(this.items.length / this.itemPerPage)
       this.initSlides()
+    },
+    track (val) {
+      this.$emit('change', val)
     }
   },
   computed: {

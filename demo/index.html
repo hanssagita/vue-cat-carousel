@@ -115,6 +115,7 @@
           :item-per-page="itemPerPage"
           :indicators-config="{activeColor: '#000', size: 10, color: '#d1d1d1', hideIndicators: false}"
           :prefix="'nike'"
+          @change="onChangeCarousel"
   >
     <template
       slot="item"
@@ -614,6 +615,11 @@
             "productSku": "MII-60035-00037"
           },
         ]
+      }
+    },
+    methods: {
+      onChangeCarousel (trackIndex) {
+        console.log(trackIndex)
       }
     }
   })
